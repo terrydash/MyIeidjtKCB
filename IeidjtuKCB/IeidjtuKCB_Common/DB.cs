@@ -7,6 +7,6 @@ namespace IeidjtuKCB_Common
 {
     public class DB
     {
-        public static readonly DbSession Context = new DbSession(DatabaseType.SqlServer9, "Data Source=127.0.0.1;Database=DBName;User Id=root;Password=root;");
+        public static readonly DbSession Context = new DbSession(DatabaseType.SqlServer9, @"Data Source=.\xuguoxu52;Database=Education;User Id=sa;Password=52Xuguoxu;");
     }
 }
