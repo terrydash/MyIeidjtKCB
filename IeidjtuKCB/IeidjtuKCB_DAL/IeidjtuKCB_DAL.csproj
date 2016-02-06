@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E2D48A02-32CD-4F9E-93DB-862BB41D2CA6}</ProjectGuid>
+    <ProjectGuid>{703C4A0B-6A60-44DD-A5D5-B1A2FA35E1E1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IeidjtuKCB_BLL</RootNamespace>
-    <AssemblyName>IeidjtuKCB_BLL</AssemblyName>
+    <RootNamespace>IeidjtuKCB_DAL</RootNamespace>
+    <AssemblyName>IeidjtuKCB_DAL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dos.ORM, Version=1.10.3.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dos.ORM.1.10.3.5\lib\net40\Dos.ORM.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,15 +41,6 @@
   <ItemGroup>
     <Compile Include="ActiveYear.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\IeidjtuKCB_Model\IeidjtuKCB_Model.csproj">
-      <Project>{82990c1e-be50-47bc-8855-ad22e6873f19}</Project>
-      <Name>IeidjtuKCB_Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
