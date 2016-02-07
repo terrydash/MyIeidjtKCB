@@ -53,14 +53,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IeidjtuKCB_BLL\IeidjtuKCB_BLL.csproj">
-      <Project>{e2d48a02-32cd-4f9e-93db-862bb41d2ca6}</Project>
-      <Name>IeidjtuKCB_BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IeidjtuKCB_DAL\IeidjtuKCB_DAL.csproj">
-      <Project>{703c4a0b-6a60-44dd-a5d5-b1a2fa35e1e1}</Project>
-      <Name>IeidjtuKCB_DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\IeidjtuKCB_Model\IeidjtuKCB_Model.csproj">
       <Project>{82990c1e-be50-47bc-8855-ad22e6873f19}</Project>
       <Name>IeidjtuKCB_Model</Name>

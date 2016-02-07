@@ -43,13 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActiveYear.cs" />
+    <Compile Include="ActiveYear_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IeidjtuKCB_Common\IeidjtuKCB_Common.csproj">
+      <Project>{bca36faf-0a3b-4c89-ae68-4b94fddd3393}</Project>
+      <Name>IeidjtuKCB_Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IeidjtuKCB_Model\IeidjtuKCB_Model.csproj">
       <Project>{82990c1e-be50-47bc-8855-ad22e6873f19}</Project>
       <Name>IeidjtuKCB_Model</Name>

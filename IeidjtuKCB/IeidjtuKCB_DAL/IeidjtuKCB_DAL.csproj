@@ -39,8 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActiveYear.cs" />
+    <Compile Include="ActiveYear_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IeidjtuKCB_BLL\IeidjtuKCB_BLL.csproj">
+      <Project>{e2d48a02-32cd-4f9e-93db-862bb41d2ca6}</Project>
+      <Name>IeidjtuKCB_BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IeidjtuKCB_Model\IeidjtuKCB_Model.csproj">
+      <Project>{82990c1e-be50-47bc-8855-ad22e6873f19}</Project>
+      <Name>IeidjtuKCB_Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

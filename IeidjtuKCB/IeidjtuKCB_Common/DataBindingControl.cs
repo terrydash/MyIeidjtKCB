@@ -32,6 +32,15 @@ namespace IeidjtuKCB_Common
             if (!string.IsNullOrEmpty(valueMember))
                 combox.ValueMember = valueMember;
         }
+       
+        /// <summary>
+        ///向要入ComboBox中加入一个提示用的项，该项的value值为0,提示项为DisplayText
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list">泛型</param>
+        /// <param name="displayMember">ComboxBox中的displayMember</param>
+        /// <param name="displayText">用做提示的字符串</param>
+        /// <param name="valueMember">ComboxBox中的valueMember</param>
         private static void AddItem<T>(IList<T> list, string displayMember, string displayText,string valueMember)
         {
             Object _obj = Activator.CreateInstance<T>();

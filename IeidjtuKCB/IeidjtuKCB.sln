@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB_Common", "Ieidjt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB_DAL", "IeidjtuKCB_DAL\IeidjtuKCB_DAL.csproj", "{703C4A0B-6A60-44DD-A5D5-B1A2FA35E1E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelUtility", "ExcelUtility\ExcelUtility.csproj", "{2F0AAA66-1DE9-4277-87F3-54768665D230}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{703C4A0B-6A60-44DD-A5D5-B1A2FA35E1E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{703C4A0B-6A60-44DD-A5D5-B1A2FA35E1E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{703C4A0B-6A60-44DD-A5D5-B1A2FA35E1E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F0AAA66-1DE9-4277-87F3-54768665D230}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F0AAA66-1DE9-4277-87F3-54768665D230}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F0AAA66-1DE9-4277-87F3-54768665D230}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F0AAA66-1DE9-4277-87F3-54768665D230}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

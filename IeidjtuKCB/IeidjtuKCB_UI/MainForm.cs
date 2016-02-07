@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using IeidjtuKCB_Common;
-using IeidjtuKCB_Model;
+using IeidjtuKCB_DAL;
 using System.Windows.Forms;
 
 namespace IeidjtuKCB_UI
@@ -26,61 +26,19 @@ namespace IeidjtuKCB_UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var list = DB.Context.From<Activeyear>()
-                                                    .Select(d => new { d.ATID, d.ATName,d.State })
-                                                    .OrderBy(Activeyear._.ATID.Desc)
-                                                    .ToList();
-            
-            if (list.Count != 0)
-            {
-                comboBox_Activeyear.BindComboBox(list, "ATName", "ATID", "--所有学期--");
-
-                var nowlist = list.Find(d => d.State == "当前");
-                if (nowlist != null)
-                {
-                    comboBox_Activeyear.SelectedValue = nowlist.ATID;
-                    
-
-                };
-                
-                
-
-            }
-            
-            
-
-
+            ActiveYear_DAL ActiveYearDal = new ActiveYear_DAL();
+            var AllActiveYearList = ActiveYearDal.GetActiveYearForComboBox();
+            DataBindingControl.BindComboBox(comboBox_Activeyear,AllActiveYearList, "ATName", "ATID", "--所有学期--");
+            comboBox_Activeyear.SelectedValue = AllActiveYearList.Find(d=>d.State=="当前").ATID;
+            ActiveYearDal = null;
         }
 
         private void comboBox_Activeyear_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            if (this.comboBox_Activeyear.Items.Count != 0)
-            {   int i=-1;
-                if (int.TryParse(comboBox_Activeyear.SelectedValue.ToString(),out i))
-                {
-                    
-                    if (i > 0)
-                    {
-                        var list = DB.Context.From<Vw_Cschedule>()
-                                                    .Where(d => d.AtyID == i)
-                                                    .OrderBy(Vw_Cschedule._.TCName.Desc)
-                                                   .ToList();
+           
 
-                        dataGridView1.DataSource = list;
-                    }
-                    else if (i ==0)
-                    {
-                       var list = DB.Context.From<Vw_Cschedule>()
-                                                    .OrderBy(Vw_Cschedule._.TCName.Desc)
-                                                   .ToList();
-                        dataGridView1.DataSource = list;
-                    }
-
-
-                }
-
-            }
+           
         }
     }
 }
