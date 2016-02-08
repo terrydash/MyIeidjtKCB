@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using IeidjtuKCB_BLL;
 using IeidjtuKCB_Model;
-using System.Windows.Forms;
+
 
 
 namespace IeidjtuKCB_DAL
