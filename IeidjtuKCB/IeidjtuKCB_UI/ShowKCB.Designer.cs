@@ -28,18 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.WebBrowserForKCB = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
+            // 
+            // WebBrowserForKCB
+            // 
+            this.WebBrowserForKCB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.WebBrowserForKCB.Location = new System.Drawing.Point(0, 0);
+            this.WebBrowserForKCB.MinimumSize = new System.Drawing.Size(20, 20);
+            this.WebBrowserForKCB.Name = "WebBrowserForKCB";
+            this.WebBrowserForKCB.Size = new System.Drawing.Size(1365, 960);
+            this.WebBrowserForKCB.TabIndex = 0;
             // 
             // ShowKCB
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.WebBrowserForKCB);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ShowKCB";
-            this.Size = new System.Drawing.Size(1024, 768);
+            this.Size = new System.Drawing.Size(1365, 960);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.WebBrowser WebBrowserForKCB;
     }
 }

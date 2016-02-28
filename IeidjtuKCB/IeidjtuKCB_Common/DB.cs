@@ -9,6 +9,6 @@ namespace IeidjtuKCB_Common
     /// </summary>
     public class DB
     {
-        public static readonly DbSession Context = new DbSession(DatabaseType.SqlServer9, @"Data Source=.\xuguoxu52;Database=Education;User Id=sa;Password=52Xuguoxu;");
+        public static readonly DbSession Context = new DbSession(DatabaseType.SqlServer9, @"Data Source=.\XUGUOXU54;Database=Education;User Id=sa;Password=52Xuguoxu;");
     }
 }

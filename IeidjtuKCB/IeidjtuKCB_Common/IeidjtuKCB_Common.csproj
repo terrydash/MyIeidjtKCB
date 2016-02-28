@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="DataBindingControl.cs" />
     <Compile Include="DB.cs" />
-    <Compile Include="ListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

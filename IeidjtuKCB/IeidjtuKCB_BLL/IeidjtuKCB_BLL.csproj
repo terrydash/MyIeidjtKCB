@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="ActiveYear_BLL.cs" />
     <Compile Include="Cschedule_BLL.cs" />
+    <Compile Include="Department_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Teacher_BLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

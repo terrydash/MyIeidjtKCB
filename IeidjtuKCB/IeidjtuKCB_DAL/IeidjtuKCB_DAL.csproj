@@ -41,7 +41,9 @@
   <ItemGroup>
     <Compile Include="ActiveYear_DAL.cs" />
     <Compile Include="Cschedule_DAL.cs" />
+    <Compile Include="Department_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Teacher_BLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IeidjtuKCB_BLL\IeidjtuKCB_BLL.csproj">
