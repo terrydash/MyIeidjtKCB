@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActiveyearEntity.cs" />
+    <Compile Include="HTMLReplaceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="vw_CscheduleEntity.cs" />
     <Compile Include="vw_DepartmentEntity.cs" />
