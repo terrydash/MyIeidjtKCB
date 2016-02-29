@@ -1,14 +1,15 @@
 ﻿
 using System.Collections.Generic;
-using IeidjtuKCB_Model;
-using IeidjtuKCB_Common;
+using IeidjtuKCB.Model;
+using IeidjtuKCB.Common;
+using IeidjtuKCB.DBSession;
 
 
-namespace IeidjtuKCB_BLL
+namespace IeidjtuKCB.DAL
 {/// <summary>
 /// 
 /// </summary>
-    public class Activeyear_BLL
+    public class Activeyear_DAL
     {
         public List<Activeyear> GetActiveYearList(int id)
         {

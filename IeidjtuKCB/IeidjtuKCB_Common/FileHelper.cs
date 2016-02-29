@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace IeidjtuKCB_Common
+namespace IeidjtuKCB.Common
 {/// <summary>
 /// 生成静态文件类
 /// </summary>
     public static class FileHelper
     {
-        public static void WrtieHTML(string FileName,List <string> ReplaceStrings,)
+        public static void WrtieHTML(string FileName,List <string> ReplaceStrings)
         {
 
 

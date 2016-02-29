@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{33BA13A8-0E18-46B7-A8D4-46D999B3BB18}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{703C4A0B-6A60-44DD-A5D5-B1A2FA35E1E1}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitTest</RootNamespace>
-    <AssemblyName>UnitTest</AssemblyName>
+    <RootNamespace>IeidjtuKCB_DAL</RootNamespace>
+    <AssemblyName>IeidjtuKCB_DAL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dos.ORM, Version=1.10.3.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dos.ORM.1.10.3.5\lib\net40\Dos.ORM.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,25 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="ActiveYear_BLL.cs" />
+    <Compile Include="Cschedule_BLL.cs" />
+    <Compile Include="Department_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IeidjtuKCB_Common\IeidjtuKCB_Common.csproj">
-      <Project>{bca36faf-0a3b-4c89-ae68-4b94fddd3393}</Project>
-      <Name>IeidjtuKCB_Common</Name>
+    <ProjectReference Include="..\IeidjtuKCB_BLL\IeidjtuKCB.DAL.csproj">
+      <Project>{e2d48a02-32cd-4f9e-93db-862bb41d2ca6}</Project>
+      <Name>IeidjtuKCB.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IeidjtuKCB_DAL\IeidjtuKCB_DAL.csproj">
-      <Project>{703c4a0b-6a60-44dd-a5d5-b1a2fa35e1e1}</Project>
-      <Name>IeidjtuKCB_DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IeidjtuKCB_Model\IeidjtuKCB_Model.csproj">
+    <ProjectReference Include="..\IeidjtuKCB_Model\IeidjtuKCB.Model.csproj">
       <Project>{82990c1e-be50-47bc-8855-ad22e6873f19}</Project>
-      <Name>IeidjtuKCB_Model</Name>
+      <Name>IeidjtuKCB.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

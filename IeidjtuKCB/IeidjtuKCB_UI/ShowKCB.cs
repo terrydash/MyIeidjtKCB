@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace IeidjtuKCB_UI
+namespace IeidjtuKCB.UI
 {
     public partial class ShowKCB : UserControl
     {

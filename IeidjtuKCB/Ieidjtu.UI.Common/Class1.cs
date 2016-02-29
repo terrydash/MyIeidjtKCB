@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace IeidjtuKCB_DAL
+namespace Ieidjtu.UI.Common
 {
-    public class Teacher_BLL
+    public class Class1
     {
     }
 }

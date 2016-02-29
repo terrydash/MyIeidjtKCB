@@ -16,7 +16,7 @@ using System.Data.Common;
 using Dos.ORM;
 using Dos.ORM.Common;
 
-namespace IeidjtuKCB_Model
+namespace IeidjtuKCB.Model
 {
 
     /// <summary>

@@ -1,4 +1,4 @@
-﻿namespace IeidjtuKCB_UI
+﻿namespace IeidjtuKCB.UI
 {
     partial class MainForm
     {

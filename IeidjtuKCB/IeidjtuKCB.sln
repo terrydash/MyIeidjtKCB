@@ -3,17 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB_UI", "IeidjtuKCB_UI\IeidjtuKCB_UI.csproj", "{BD55684D-0EDE-47BD-A083-1A7321B140DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB.UI", "IeidjtuKCB_UI\IeidjtuKCB.UI.csproj", "{BD55684D-0EDE-47BD-A083-1A7321B140DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB_BLL", "IeidjtuKCB_BLL\IeidjtuKCB_BLL.csproj", "{E2D48A02-32CD-4F9E-93DB-862BB41D2CA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB.DAL", "IeidjtuKCB_BLL\IeidjtuKCB.DAL.csproj", "{E2D48A02-32CD-4F9E-93DB-862BB41D2CA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB_Model", "IeidjtuKCB_Model\IeidjtuKCB_Model.csproj", "{82990C1E-BE50-47BC-8855-AD22E6873F19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB.Model", "IeidjtuKCB_Model\IeidjtuKCB.Model.csproj", "{82990C1E-BE50-47BC-8855-AD22E6873F19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB_Common", "IeidjtuKCB_Common\IeidjtuKCB_Common.csproj", "{BCA36FAF-0A3B-4C89-AE68-4B94FDDD3393}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB.Common", "IeidjtuKCB_Common\IeidjtuKCB.Common.csproj", "{BCA36FAF-0A3B-4C89-AE68-4B94FDDD3393}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB_DAL", "IeidjtuKCB_DAL\IeidjtuKCB_DAL.csproj", "{703C4A0B-6A60-44DD-A5D5-B1A2FA35E1E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB.BLL", "IeidjtuKCB_DAL\IeidjtuKCB.BLL.csproj", "{703C4A0B-6A60-44DD-A5D5-B1A2FA35E1E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelUtility", "ExcelUtility\ExcelUtility.csproj", "{2F0AAA66-1DE9-4277-87F3-54768665D230}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB.DBSession", "Ieidjtu.DBSession\IeidjtuKCB.DBSession.csproj", "{FB3C2560-083C-4252-B3E5-7C663CF96859}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB.Interface", "IeidjtuKCB.Interface\IeidjtuKCB.Interface.csproj", "{9E29A33C-1DA3-45BF-99B4-7F03E3FDCE6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB.UI.Common", "IeidjtuKCB.UI.Common\IeidjtuKCB.UI.Common.csproj", "{5B8623F0-5794-413F-936F-9F951A033855}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,18 @@ Global
 		{2F0AAA66-1DE9-4277-87F3-54768665D230}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F0AAA66-1DE9-4277-87F3-54768665D230}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F0AAA66-1DE9-4277-87F3-54768665D230}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB3C2560-083C-4252-B3E5-7C663CF96859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB3C2560-083C-4252-B3E5-7C663CF96859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB3C2560-083C-4252-B3E5-7C663CF96859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB3C2560-083C-4252-B3E5-7C663CF96859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E29A33C-1DA3-45BF-99B4-7F03E3FDCE6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E29A33C-1DA3-45BF-99B4-7F03E3FDCE6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E29A33C-1DA3-45BF-99B4-7F03E3FDCE6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E29A33C-1DA3-45BF-99B4-7F03E3FDCE6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B8623F0-5794-413F-936F-9F951A033855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B8623F0-5794-413F-936F-9F951A033855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B8623F0-5794-413F-936F-9F951A033855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B8623F0-5794-413F-936F-9F951A033855}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

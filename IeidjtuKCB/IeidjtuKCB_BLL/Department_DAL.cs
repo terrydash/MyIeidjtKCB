@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using IeidjtuKCB_Common;
-using IeidjtuKCB_Model;
-
-namespace IeidjtuKCB_BLL
+using IeidjtuKCB.Common;
+using IeidjtuKCB.DBSession;
+using IeidjtuKCB.Model;
+namespace IeidjtuKCB.DAL
 {
-    public class Department_BLL
+    public class Department_DAL
     {
         public List<Vw_DeptMent> GetAllDepartment()
         {

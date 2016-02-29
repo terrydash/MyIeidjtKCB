@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace IeidjtuKCB_UI
+namespace IeidjtuKCB.UI
 {
     static class Program
     {

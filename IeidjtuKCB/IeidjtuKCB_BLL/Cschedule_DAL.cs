@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
-using IeidjtuKCB_Model;
-using IeidjtuKCB_Common;
+using IeidjtuKCB.Model;
+using IeidjtuKCB.Common;
+using IeidjtuKCB.DBSession;
 
-namespace IeidjtuKCB_BLL
+namespace IeidjtuKCB.DAL
 {
-    public class Cschedule_BLL
+    public class Cschedule_DAL
+
     {
         public List<Vw_Cschedule> GetAllVw_CscheduleListFromAtyid(int Atyid)
         {

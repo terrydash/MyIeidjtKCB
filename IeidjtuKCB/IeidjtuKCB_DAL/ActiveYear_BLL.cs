@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using IeidjtuKCB_BLL;
-using IeidjtuKCB_Model;
+using IeidjtuKCB.DAL;
+using IeidjtuKCB.Model;
 
 
 
-namespace IeidjtuKCB_DAL
+namespace IeidjtuKCB.BLL
 {
-    public class ActiveYear_DAL
+    public class ActiveYear_BLL
     {
         public List<Activeyear> GetAllActvieYear()
         {
@@ -15,9 +15,9 @@ namespace IeidjtuKCB_DAL
         }
         public List<Activeyear> GetActvieYearById(int id)
         {
-            Activeyear_BLL Ay_Bll = new Activeyear_BLL();
+            Activeyear_DAL Ay_DAL = new Activeyear_DAL();
 
-            return Ay_Bll.GetActiveYearList(id);
+            return Ay_DAL.GetActiveYearList(id);
         }
         public List<Activeyear> GetActiveYearForComboBox()
         {
@@ -33,9 +33,9 @@ namespace IeidjtuKCB_DAL
       
           public int GetNowActvieYearID()
         {
-            Activeyear_BLL Ay_Bll = new Activeyear_BLL();
+            Activeyear_DAL Ay_DAL = new Activeyear_DAL();
 
-            return Ay_Bll.GetActiveYearList(0).Find(d => d.State == "当前").ATID; 
+            return Ay_DAL.GetActiveYearList(0).Find(d => d.State == "当前").ATID; 
         }
        
     }

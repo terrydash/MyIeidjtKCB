@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Dos.ORM;
-namespace IeidjtuKCB_Common
+namespace IeidjtuKCB.DBSession
 {   /// <summary>
     /// 数据库连接上下文
     /// </summary>

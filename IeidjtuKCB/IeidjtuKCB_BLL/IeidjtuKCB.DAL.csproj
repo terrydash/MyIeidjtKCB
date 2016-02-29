@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BD55684D-0EDE-47BD-A083-1A7321B140DC}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{E2D48A02-32CD-4F9E-93DB-862BB41D2CA6}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IeidjtuKCB_UI</RootNamespace>
-    <AssemblyName>IeidjtuKCB_UI</AssemblyName>
+    <RootNamespace>IeidjtuKCB_BLL</RootNamespace>
+    <AssemblyName>IeidjtuKCB_BLL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,69 +40,30 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="ActiveYear_DAL.cs" />
+    <Compile Include="Cschedule_DAL.cs" />
+    <Compile Include="Department_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShowKCB.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ShowKCB.Designer.cs">
-      <DependentUpon>ShowKCB.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="ShowKCB.resx">
-      <DependentUpon>ShowKCB.cs</DependentUpon>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IeidjtuKCB_Common\IeidjtuKCB_Common.csproj">
+    <ProjectReference Include="..\Ieidjtu.DBSession\IeidjtuKCB.DBSession.csproj">
+      <Project>{fb3c2560-083c-4252-b3e5-7c663cf96859}</Project>
+      <Name>IeidjtuKCB.DBSession</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IeidjtuKCB_Common\IeidjtuKCB.Common.csproj">
       <Project>{bca36faf-0a3b-4c89-ae68-4b94fddd3393}</Project>
-      <Name>IeidjtuKCB_Common</Name>
+      <Name>IeidjtuKCB.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IeidjtuKCB_DAL\IeidjtuKCB_DAL.csproj">
-      <Project>{703c4a0b-6a60-44dd-a5d5-b1a2fa35e1e1}</Project>
-      <Name>IeidjtuKCB_DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IeidjtuKCB_Model\IeidjtuKCB_Model.csproj">
+    <ProjectReference Include="..\IeidjtuKCB_Model\IeidjtuKCB.Model.csproj">
       <Project>{82990c1e-be50-47bc-8855-ad22e6873f19}</Project>
-      <Name>IeidjtuKCB_Model</Name>
+      <Name>IeidjtuKCB.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ShowKCBForTeacher.html" />
-    <Content Include="ShowKCBForRoom.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,12 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using IeidjtuKCB_Common;
-using IeidjtuKCB_DAL;
+using IeidjtuKCB.Common;
+using IeidjtuKCB.BLL;
 using System.Windows.Forms;
+using IeidjtuKCB.UI.Common;
 using System.Threading;
 
-namespace IeidjtuKCB_UI
+namespace IeidjtuKCB.UI
 {
    
     public partial class MainForm : Form
@@ -20,6 +21,7 @@ namespace IeidjtuKCB_UI
         /// </summary>
         /// <param name="Atyid"></param>
         delegate void BindVw_CscheduleToGridViewCallBack(int Atyid);
+        delegate void BindActyeartToComboBoxCallBack(ComboBox combobox);
 
         public MainForm()
         {
@@ -28,13 +30,15 @@ namespace IeidjtuKCB_UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-           
+            
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Invoke(new MethodInvoker(BindActiveYearEntitytoCombobox));
+            BindActyeartToComboBoxCallBack d = new BindActyeartToComboBoxCallBack(MainFormUIBind.ComboBoxBind.BindActiveYearEntitytoCombobox);
+            this.Invoke(d, new object[] { comboBox_Activeyear });
+            
         }
 
         private void comboBox_Activeyear_SelectedIndexChanged(object sender, EventArgs e)
@@ -68,8 +72,8 @@ namespace IeidjtuKCB_UI
             {
                 try
                 {
-                    Cschedule_DAL Cs_DAL = new Cschedule_DAL();
-                    var ALLVw_CscheduleList = Cs_DAL.GetAllVw_CscheduleList(Atyid);
+                    Cschedule_BLL Cs_BLL = new Cschedule_BLL();
+                    var ALLVw_CscheduleList = Cs_BLL.GetAllVw_CscheduleList(Atyid);
                     dataGridView1.DataSource = ALLVw_CscheduleList;
                 }
                 catch (Exception ex)
@@ -80,21 +84,6 @@ namespace IeidjtuKCB_UI
         }
        
 
-        private void BindActiveYearEntitytoCombobox()
-        {
-            try
-            {
-                ActiveYear_DAL ActiveYearDal = new ActiveYear_DAL();
-                var AllActiveYearList = ActiveYearDal.GetActiveYearForComboBox();
-                DataBindingControl.BindComboBox(comboBox_Activeyear, AllActiveYearList, "ATName", "ATID", "--所有学期--");
-                comboBox_Activeyear.SelectedValue = AllActiveYearList.Find(d => d.State == "当前").ATID;
-                ActiveYearDal = null;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("程序发生错误,信息: " + ex.Message);
-            }
-
-         }
+       
     }
 }
