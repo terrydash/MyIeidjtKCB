@@ -7,8 +7,8 @@
     <ProjectGuid>{82990C1E-BE50-47BC-8855-AD22E6873F19}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IeidjtuKCB_Model</RootNamespace>
-    <AssemblyName>IeidjtuKCB_Model</AssemblyName>
+    <RootNamespace>IeidjtuKCB.Model</RootNamespace>
+    <AssemblyName>IeidjtuKCB.Model</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -46,6 +46,7 @@
     <Compile Include="ActiveyearEntity.cs" />
     <Compile Include="HTMLReplaceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeacherEntity.cs" />
     <Compile Include="vw_CscheduleEntity.cs" />
     <Compile Include="vw_DepartmentEntity.cs" />
     <Compile Include="vw_TeacherEntity.cs" />

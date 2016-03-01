@@ -21,8 +21,8 @@ namespace IeidjtuKCB.UI
         /// </summary>
         /// <param name="Atyid"></param>
         delegate void BindVw_CscheduleToGridViewCallBack(int Atyid);
-        delegate void BindActyeartToComboBoxCallBack(ComboBox combobox);
-
+        delegate void BindEntityToComboBoxCallBack(ComboBox combobox);
+        delegate void BindEntityToGridViewCallBack(DataGridView dGV);
         public MainForm()
         {
             InitializeComponent();
@@ -36,9 +36,12 @@ namespace IeidjtuKCB.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BindActyeartToComboBoxCallBack d = new BindActyeartToComboBoxCallBack(MainFormUIBind.ComboBoxBind.BindActiveYearEntitytoCombobox);
+            BindEntityToComboBoxCallBack d = new BindEntityToComboBoxCallBack(MainFormUIBind.ComboBoxBind.BindActiveYearEntitytoCombobox);
+            BindEntityToComboBoxCallBack c = new BindEntityToComboBoxCallBack(MainFormUIBind.ComboBoxBind.BindDepartmentEntitytoCombobox);
             this.Invoke(d, new object[] { comboBox_Activeyear });
-            
+            this.Invoke(c, new object[] { comboBox_Department_For_Teacher });
+
+
         }
 
         private void comboBox_Activeyear_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,6 +78,7 @@ namespace IeidjtuKCB.UI
                     Cschedule_BLL Cs_BLL = new Cschedule_BLL();
                     var ALLVw_CscheduleList = Cs_BLL.GetAllVw_CscheduleList(Atyid);
                     dataGridView1.DataSource = ALLVw_CscheduleList;
+                    Cs_BLL = null;
                 }
                 catch (Exception ex)
                 {
@@ -82,8 +86,24 @@ namespace IeidjtuKCB.UI
                 }
             }
         }
-       
 
-       
+        private void Btn_FindTeacher_Click(object sender, EventArgs e)
+        {
+            int SelectItemID = 0;
+            if (comboBox_Department_For_Teacher.Items.Count > 0)
+            {
+                try
+                {
+                    int.TryParse(comboBox_Department_For_Teacher.SelectedValue.ToString(), out SelectItemID);
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("程序发生错误,信息: " + ex.Message);
+                }
+                MainFormUIBind.DataGridViewBind.BindTeacherEntityToDataGridView(dataGridView_Teacher, SelectItemID,textBox_TeacherNameToFind.Text);
+
+            }
+        }
     }
 }

@@ -7,7 +7,43 @@ using System.Reflection;
 namespace IeidjtuKCB.UI.Common
 {
     public static class UICommonDataBind
-    {
+    {   /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="dGV"></param>
+        /// <param name="list"></param>
+        /// <param name=""></param>
+        public static void BindDataGridView<T>(this DataGridView dGV, IList<T> list, List<string> ColumnNames, List<string> DisplayColumnNames)
+        {
+            if (ColumnNames.Count == DisplayColumnNames.Count)
+            {
+                dGV.DataBindings.Clear();
+                dGV.DataSource = list;
+                for (int i = 0; i <=ColumnNames.Count; i++)
+                {
+                    dGV.Columns.Add(ColumnNames[i], DisplayColumnNames[i]);
+                }
+
+
+
+            }
+            else
+            {
+                MessageBox.Show("要绑定的列与要显示的列标题数量不符");
+
+            }
+            
+
+
+        }
+        public static void BindDataGridView<T>(this DataGridView dGV, IList<T> list)
+        {
+            dGV.DataBindings.Clear();               
+            dGV.DataSource = list;
+            
+
+        }
 
         /// <summary>
         /// 为ComboBox绑定数据源并提供下拉提示

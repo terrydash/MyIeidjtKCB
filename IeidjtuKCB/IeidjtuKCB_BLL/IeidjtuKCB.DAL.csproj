@@ -7,8 +7,8 @@
     <ProjectGuid>{E2D48A02-32CD-4F9E-93DB-862BB41D2CA6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IeidjtuKCB_BLL</RootNamespace>
-    <AssemblyName>IeidjtuKCB_BLL</AssemblyName>
+    <RootNamespace>IeidjtuKCB.DAL</RootNamespace>
+    <AssemblyName>IeidjtuKCB.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,6 +47,8 @@
     <Compile Include="Cschedule_DAL.cs" />
     <Compile Include="Department_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Teacher_DAL.cs" />
+    <Compile Include="Vw_Teacher_Dal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -55,6 +57,10 @@
     <ProjectReference Include="..\Ieidjtu.DBSession\IeidjtuKCB.DBSession.csproj">
       <Project>{fb3c2560-083c-4252-b3e5-7c663cf96859}</Project>
       <Name>IeidjtuKCB.DBSession</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IeidjtuKCB.Interface\IeidjtuKCB.Interface.csproj">
+      <Project>{9e29a33c-1da3-45bf-99b4-7f03e3fdce6a}</Project>
+      <Name>IeidjtuKCB.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\IeidjtuKCB_Common\IeidjtuKCB.Common.csproj">
       <Project>{bca36faf-0a3b-4c89-ae68-4b94fddd3393}</Project>

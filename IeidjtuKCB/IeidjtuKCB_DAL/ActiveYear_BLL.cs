@@ -2,26 +2,22 @@
 using System.Collections.Generic;
 using IeidjtuKCB.DAL;
 using IeidjtuKCB.Model;
+using IeidjtuKCB.Interface;
 
 
 
-namespace IeidjtuKCB.BLL
+namespace IeidjtuKCB.BLL 
 {
-    public class ActiveYear_BLL
+    public class ActiveYear_BLL : IBaseBLL<Activeyear>
     {
-        public List<Activeyear> GetAllActvieYear()
-        {
-            return GetActvieYearById(0);
-        }
-        public List<Activeyear> GetActvieYearById(int id)
-        {
-            Activeyear_DAL Ay_DAL = new Activeyear_DAL();
-
-            return Ay_DAL.GetActiveYearList(id);
-        }
+        private Activeyear_DAL Ay_DAL = new Activeyear_DAL();
+        /// <summary>
+        /// 为ActiveYear实体增加当前学期的提示
+        /// </summary>
+        /// <returns></returns>
         public List<Activeyear> GetActiveYearForComboBox()
         {
-            var ActiveYearList = GetAllActvieYear();
+            var ActiveYearList = GetAllEntityFromDAL();
 
             if (ActiveYearList.Count != 0)
             {
@@ -32,11 +28,23 @@ namespace IeidjtuKCB.BLL
         }
       
           public int GetNowActvieYearID()
-        {
-            Activeyear_DAL Ay_DAL = new Activeyear_DAL();
+        {            
 
-            return Ay_DAL.GetActiveYearList(0).Find(d => d.State == "当前").ATID; 
+            return GetAllEntityFromDAL().Find(d => d.State == "当前").ATID; 
         }
+
        
+
+        public List<Activeyear> GetEntityFromDAL(int ID)
+        {
+            
+
+            return Ay_DAL.GetEntityFromDB(ID);
+        }
+
+        public List<Activeyear> GetAllEntityFromDAL()
+        {
+            return GetEntityFromDAL(0);
+        }
     }
 }

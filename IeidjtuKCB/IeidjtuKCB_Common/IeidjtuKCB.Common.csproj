@@ -7,8 +7,8 @@
     <ProjectGuid>{BCA36FAF-0A3B-4C89-AE68-4B94FDDD3393}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IeidjtuKCB_Common</RootNamespace>
-    <AssemblyName>IeidjtuKCB_Common</AssemblyName>
+    <RootNamespace>IeidjtuKCB.Common</RootNamespace>
+    <AssemblyName>IeidjtuKCB.Common</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

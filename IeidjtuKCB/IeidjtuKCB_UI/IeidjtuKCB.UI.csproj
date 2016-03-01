@@ -7,8 +7,8 @@
     <ProjectGuid>{BD55684D-0EDE-47BD-A083-1A7321B140DC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IeidjtuKCB_UI</RootNamespace>
-    <AssemblyName>IeidjtuKCB_UI</AssemblyName>
+    <RootNamespace>IeidjtuKCB.UI</RootNamespace>
+    <AssemblyName>IeidjtuKCB.UI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -73,6 +73,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ShowKCB.resx">
       <DependentUpon>ShowKCB.cs</DependentUpon>
