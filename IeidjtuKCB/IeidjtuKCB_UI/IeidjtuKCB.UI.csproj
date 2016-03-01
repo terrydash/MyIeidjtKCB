@@ -78,7 +78,6 @@
     <EmbeddedResource Include="ShowKCB.resx">
       <DependentUpon>ShowKCB.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,10 +89,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExcelUtility\ExcelUtility.csproj">
-      <Project>{2f0aaa66-1de9-4277-87f3-54768665d230}</Project>
-      <Name>ExcelUtility</Name>
-    </ProjectReference>
     <ProjectReference Include="..\IeidjtuKCB.UI.Common\IeidjtuKCB.UI.Common.csproj">
       <Project>{5b8623f0-5794-413f-936f-9f951a033855}</Project>
       <Name>IeidjtuKCB.UI.Common</Name>
