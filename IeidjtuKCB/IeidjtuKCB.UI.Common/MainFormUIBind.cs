@@ -16,16 +16,25 @@ namespace IeidjtuKCB.UI.Common
         public static class DataGridViewBind
         {
             public static void BindTeacherEntityToDataGridView(DataGridView dGV,int DeptID,string TeacherName)
-            {       try
-                {
+            {
+                List<string> ColumnNames = new List<string>();
+                List<string> DisplayNames = new List<string>();
+                ColumnNames.Add("PSID");DisplayNames.Add("ID");
+                ColumnNames.Add("StandCode"); DisplayNames.Add("教师编码");
+                ColumnNames.Add("PsName"); DisplayNames.Add("教师姓名");
+                ColumnNames.Add("Sex"); DisplayNames.Add("性别");
+                ColumnNames.Add("PassWord"); DisplayNames.Add("账号密码"); 
+                try
+                { 
                     Teacher_BLL T_Bll = new Teacher_BLL();              
-                    UICommonDataBind.BindDataGridView(dGV, T_Bll.GetTeacherEntityFromDAL(DeptID,TeacherName));
+                    UICommonDataBind.BindDataGridView(dGV, T_Bll.GetTeacherEntityFromDAL(DeptID,TeacherName),ColumnNames,DisplayNames);
                 }
                     catch
                 {
 
                 }
             }
+
 
 
         }
