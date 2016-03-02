@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IeidjtuKCB_Common\IeidjtuKCB.Common.csproj">
+      <Project>{bca36faf-0a3b-4c89-ae68-4b94fddd3393}</Project>
+      <Name>IeidjtuKCB.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IeidjtuKCB_DAL\IeidjtuKCB.BLL.csproj">
       <Project>{703c4a0b-6a60-44dd-a5d5-b1a2fa35e1e1}</Project>
       <Name>IeidjtuKCB.BLL</Name>
