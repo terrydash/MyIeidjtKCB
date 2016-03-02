@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
+using IeidjtuKCB.Common;
 namespace IeidjtuKCB.UI.Common
 {
     public static class UICommonDataBind
@@ -18,13 +19,24 @@ namespace IeidjtuKCB.UI.Common
         {
             if (ColumnNames.Count == DisplayColumnNames.Count)
             {
+                dGV.AutoGenerateColumns = false;
                 dGV.DataBindings.Clear();
-                dGV.DataSource = list;
-                for (int i = 0; i <=ColumnNames.Count; i++)
+                dGV.Columns.Clear();
+                dGV.DataSource = ListMethod.ListToDataTable<T>(list);
+             
+                for (int i = 0; i <=ColumnNames.Count-1; i++)
                 {
-                    dGV.Columns.Add(ColumnNames[i], DisplayColumnNames[i]);
+                    DataGridViewTextBoxColumn a = new DataGridViewTextBoxColumn();
+                    a.DataPropertyName = ColumnNames[i];
+                    a.HeaderText = DisplayColumnNames[i];
+                    a.Name = ColumnNames[i];
+                    a.DisplayIndex = i;
+                    a.Resizable = DataGridViewTriState.False;
+                    //a.SortMode = DataGridViewColumnSortMode.Automatic;
+                    dGV.Columns.Add(a);
+                    
                 }
-
+                dGV.AllowUserToOrderColumns = true;        
 
 
             }
