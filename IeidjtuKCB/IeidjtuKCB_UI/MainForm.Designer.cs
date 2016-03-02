@@ -39,7 +39,6 @@
             this.课程课表查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.Btn_FindTeacher = new System.Windows.Forms.Button();
             this.dataGridView_Teacher = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox_TeacherNameToFind = new System.Windows.Forms.TextBox();
@@ -48,7 +47,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.BackgroudWorkerForDataBase = new System.ComponentModel.BackgroundWorker();
+            this.Btn_FindTeacher = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -160,24 +159,13 @@
             this.tabPage1.Text = "教师课表查询";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // Btn_FindTeacher
-            // 
-            this.Btn_FindTeacher.Location = new System.Drawing.Point(401, 17);
-            this.Btn_FindTeacher.Name = "Btn_FindTeacher";
-            this.Btn_FindTeacher.Size = new System.Drawing.Size(75, 23);
-            this.Btn_FindTeacher.TabIndex = 7;
-            this.Btn_FindTeacher.Text = "查询";
-            this.Btn_FindTeacher.UseVisualStyleBackColor = true;
-            this.Btn_FindTeacher.Click += new System.EventHandler(this.Btn_FindTeacher_Click);
-            // 
             // dataGridView_Teacher
             // 
-            this.dataGridView_Teacher.AllowUserToOrderColumns = true;
             this.dataGridView_Teacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Teacher.Location = new System.Drawing.Point(15, 64);
             this.dataGridView_Teacher.Name = "dataGridView_Teacher";
             this.dataGridView_Teacher.RowTemplate.Height = 27;
-            this.dataGridView_Teacher.Size = new System.Drawing.Size(575, 150);
+            this.dataGridView_Teacher.Size = new System.Drawing.Size(240, 150);
             this.dataGridView_Teacher.TabIndex = 6;
             // 
             // label3
@@ -245,10 +233,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(320, 188);
             this.dataGridView1.TabIndex = 1;
             // 
-            // BackgroudWorkerForDataBase
+            // Btn_FindTeacher
             // 
-            this.BackgroudWorkerForDataBase.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroudWorker_DoWork);
-            this.BackgroudWorkerForDataBase.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroudWorkerForDataBase_RunWorkerCompleted);
+            this.Btn_FindTeacher.Location = new System.Drawing.Point(401, 17);
+            this.Btn_FindTeacher.Name = "Btn_FindTeacher";
+            this.Btn_FindTeacher.Size = new System.Drawing.Size(75, 23);
+            this.Btn_FindTeacher.TabIndex = 7;
+            this.Btn_FindTeacher.Text = "查询";
+            this.Btn_FindTeacher.UseVisualStyleBackColor = true;
+            this.Btn_FindTeacher.Click += new System.EventHandler(this.Btn_FindTeacher_Click);
             // 
             // MainForm
             // 
@@ -302,7 +295,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView_Teacher;
         private System.Windows.Forms.Button Btn_FindTeacher;
-        private System.ComponentModel.BackgroundWorker BackgroudWorkerForDataBase;
     }
 }
 

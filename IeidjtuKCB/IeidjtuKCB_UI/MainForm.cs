@@ -13,16 +13,10 @@ using System.Threading;
 
 namespace IeidjtuKCB.UI
 {
-
+   
     public partial class MainForm : Form
-    { private object Entity = null;
-        
-        private enum BindDataBaseToUI
-        {
-            BindTeacherActivityToGridview = 1,
-        }
-        BindDataBaseToUI DoWorkState;
-        /// <summary>       
+    {
+        /// <summary>
         /// 用作多线程读取数据库更新用用的委托
         /// </summary>
         /// <param name="Atyid"></param>
@@ -36,7 +30,7 @@ namespace IeidjtuKCB.UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            
 
         }
 
@@ -51,11 +45,10 @@ namespace IeidjtuKCB.UI
         }
 
         private void comboBox_Activeyear_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int SelectItemID = 0;
+        {  int SelectItemID = 0;
             try
             {
-                int.TryParse(comboBox_Activeyear.SelectedValue.ToString(), out SelectItemID);
+                int.TryParse(comboBox_Activeyear.SelectedValue.ToString(),out SelectItemID);
 
             }
 
@@ -71,10 +64,10 @@ namespace IeidjtuKCB.UI
             else
             {
 
-            }
+            }   
+                         
 
-
-
+           
         }
 
         private void BindVw_CscheduleToGridView(int Atyid)
@@ -94,25 +87,11 @@ namespace IeidjtuKCB.UI
             }
         }
 
-        private void Btn_FindTeacher_Click(object sender, EventArgs e)      
+        private void Btn_FindTeacher_Click(object sender, EventArgs e)
         {
-            
+            int SelectItemID = 0;
             if (comboBox_Department_For_Teacher.Items.Count > 0)
             {
-
-                //MainFormUIBind.DataGridViewBind.BindTeacherEntityToDataGridView(dataGridView_Teacher, SelectItemID,textBox_TeacherNameToFind.Text);
-                DoWorkState = (int)BindDataBaseToUI.BindTeacherActivityToGridview;
-                BackgroudWorkerForDataBase.RunWorkerAsync(BindDataBaseToUI.BindTeacherActivityToGridview);
-                
-            }
-        }
-
-        private void BackgroudWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            var voidid = e.Argument.ToString(); ;
-            if (voidid == BindDataBaseToUI.BindTeacherActivityToGridview.ToString())
-            {
-                int SelectItemID = 0;   
                 try
                 {
                     int.TryParse(comboBox_Department_For_Teacher.SelectedValue.ToString(), out SelectItemID);
@@ -122,24 +101,7 @@ namespace IeidjtuKCB.UI
                 {
                     MessageBox.Show("程序发生错误,信息: " + ex.Message);
                 }
-                Cschedule_BLL Cs_BLL = new Cschedule_BLL();
-                var ALLVw_CscheduleList = Cs_BLL.GetAllVw_CscheduleList(SelectItemID);
-
-            }
-           
-                if (BackgroudWorkerForDataBase.CancellationPending) { e.Cancel = true; return; }
-           //     BackgroudWorkerForDataBase.ReportProgress(i);
-         
-
-           
-        }
-
-        private void BackgroudWorkerForDataBase_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (((e.Cancelled == false )|( e.Error == null)))
-            {
-                switch
-
+                MainFormUIBind.DataGridViewBind.BindTeacherEntityToDataGridView(dataGridView_Teacher, SelectItemID,textBox_TeacherNameToFind.Text);
 
             }
         }
