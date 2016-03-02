@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using IeidjtuKCB.DAL;
 using IeidjtuKCB.Model;
 using IeidjtuKCB.Interface;
-
+using System.Data;
 
 
 namespace IeidjtuKCB.BLL 
@@ -32,7 +32,6 @@ namespace IeidjtuKCB.BLL
 
             return GetAllEntityFromDAL().Find(d => d.State == "当前").ATID; 
         }
-
        
 
         public List<Activeyear> GetEntityFromDAL(int ID)

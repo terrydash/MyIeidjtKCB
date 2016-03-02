@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConvertMethod.cs" />
     <Compile Include="ListMethod.cs" />
     <Compile Include="DataBindingControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

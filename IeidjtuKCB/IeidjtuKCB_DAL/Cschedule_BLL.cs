@@ -5,6 +5,7 @@ using System.Text;
 using IeidjtuKCB.DAL;
 using IeidjtuKCB.Model;
 
+
 namespace IeidjtuKCB.BLL
 {
     public class Cschedule_BLL
@@ -15,5 +16,6 @@ namespace IeidjtuKCB.BLL
             return Cs_DAL.GetAllVw_CscheduleListFromAtyid(Atyid);
 
         }
+       
     }
 }

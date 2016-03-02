@@ -5,6 +5,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
 using IeidjtuKCB.Common;
+using System.Data;
+
 namespace IeidjtuKCB.UI.Common
 {
     public static class UICommonDataBind
@@ -37,23 +39,62 @@ namespace IeidjtuKCB.UI.Common
                     
                 }
                 dGV.AllowUserToOrderColumns = true;        
+            }
+            else
+            {
+                MessageBox.Show("要绑定的列与要显示的列标题数量不符");
 
+            }           
+        }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="dGV"></param>
+        /// <param name="list"></param>
+        /// <param name=""></param>
+        public static void BindDataGridView(this DataGridView dGV, DataTable list, List<string> ColumnNames, List<string> DisplayColumnNames)
+        {
+            if (ColumnNames.Count == DisplayColumnNames.Count)
+            {
+                dGV.AutoGenerateColumns = false;
+                dGV.DataBindings.Clear();
+                dGV.Columns.Clear();
+                dGV.DataSource = list;
+
+                for (int i = 0; i <= ColumnNames.Count - 1; i++)
+                {
+                    DataGridViewTextBoxColumn a = new DataGridViewTextBoxColumn();
+                    a.DataPropertyName = ColumnNames[i];
+                    a.HeaderText = DisplayColumnNames[i];
+                    a.Name = ColumnNames[i];
+                    a.DisplayIndex = i;
+                    a.Resizable = DataGridViewTriState.False;
+                    //a.SortMode = DataGridViewColumnSortMode.Automatic;
+                    dGV.Columns.Add(a);
+
+                }
+                dGV.AllowUserToOrderColumns = true;
             }
             else
             {
                 MessageBox.Show("要绑定的列与要显示的列标题数量不符");
 
             }
-            
-
-
         }
         public static void BindDataGridView<T>(this DataGridView dGV, IList<T> list)
         {
             dGV.DataBindings.Clear();               
             dGV.DataSource = list;
             
+
+        }
+        public static void BindDataGridView(this DataGridView dGV, DataTable t)
+        {
+            dGV.DataBindings.Clear();
+            dGV.DataSource = t;
+
 
         }
 

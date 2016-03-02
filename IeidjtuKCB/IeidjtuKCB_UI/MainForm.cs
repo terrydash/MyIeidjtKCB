@@ -9,26 +9,21 @@ using IeidjtuKCB.Common;
 using IeidjtuKCB.BLL;
 using System.Windows.Forms;
 using IeidjtuKCB.UI.Common;
-using System.Threading;
+
 
 namespace IeidjtuKCB.UI
 {
 
     public partial class MainForm : Form
-    { private object Entity = null;
+    {
         
-        private enum BindDataBaseToUI
-        {
-            BindTeacherActivityToGridview = 1,
-        }
-        BindDataBaseToUI DoWorkState;
+        DataTable EntityModelToDataTable = null;
+        MainFormEnum.BindDataBaseToUI DoWorkState=MainFormEnum.BindDataBaseToUI.NothingToDo;
         /// <summary>       
         /// 用作多线程读取数据库更新用用的委托
         /// </summary>
         /// <param name="Atyid"></param>
-        delegate void BindVw_CscheduleToGridViewCallBack(int Atyid);
-        delegate void BindEntityToComboBoxCallBack(ComboBox combobox);
-        delegate void BindEntityToGridViewCallBack(DataGridView dGV);
+        
         public MainForm()
         {
             InitializeComponent();
@@ -42,39 +37,22 @@ namespace IeidjtuKCB.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BindEntityToComboBoxCallBack d = new BindEntityToComboBoxCallBack(MainFormUIBind.ComboBoxBind.BindActiveYearEntitytoCombobox);
-            BindEntityToComboBoxCallBack c = new BindEntityToComboBoxCallBack(MainFormUIBind.ComboBoxBind.BindDepartmentEntitytoCombobox);
-            this.Invoke(d, new object[] { comboBox_Activeyear });
-            this.Invoke(c, new object[] { comboBox_Department_For_Teacher });
 
-
+            DoWorkState = MainFormEnum.BindDataBaseToUI.BindTeacherEntityToGridview;
+            BackgroudWorkerForDataBase.RunWorkerAsync();
         }
 
         private void comboBox_Activeyear_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int SelectItemID = 0;
-            try
+        {          
+            if (comboBox_Activeyear.SelectedValue.ToString().Length!=0)
             {
-                int.TryParse(comboBox_Activeyear.SelectedValue.ToString(), out SelectItemID);
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("程序发生错误,信息: " + ex.Message);
-            }
-            if (SelectItemID > 0)
-            {
-                BindVw_CscheduleToGridViewCallBack d = new BindVw_CscheduleToGridViewCallBack(BindVw_CscheduleToGridView);
-                this.Invoke(d, new object[] { SelectItemID });
+                DoWorkState = MainFormEnum.BindDataBaseToUI.BindTeacherEntityToGridview;
+                BackgroudWorkerForDataBase.RunWorkerAsync();
             }
             else
             {
 
             }
-
-
-
         }
 
         private void BindVw_CscheduleToGridView(int Atyid)
@@ -101,45 +79,76 @@ namespace IeidjtuKCB.UI
             {
 
                 //MainFormUIBind.DataGridViewBind.BindTeacherEntityToDataGridView(dataGridView_Teacher, SelectItemID,textBox_TeacherNameToFind.Text);
-                DoWorkState = (int)BindDataBaseToUI.BindTeacherActivityToGridview;
-                BackgroudWorkerForDataBase.RunWorkerAsync(BindDataBaseToUI.BindTeacherActivityToGridview);
+                
                 
             }
         }
-
+        /// <summary>
+        /// 异步读取数据库
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackgroudWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            var voidid = e.Argument.ToString(); ;
-            if (voidid == BindDataBaseToUI.BindTeacherActivityToGridview.ToString())
+            switch (DoWorkState)
             {
-                int SelectItemID = 0;   
-                try
-                {
-                    int.TryParse(comboBox_Department_For_Teacher.SelectedValue.ToString(), out SelectItemID);
-                }
-
-                catch (Exception ex)
-                {
-                    MessageBox.Show("程序发生错误,信息: " + ex.Message);
-                }
-                Cschedule_BLL Cs_BLL = new Cschedule_BLL();
-                var ALLVw_CscheduleList = Cs_BLL.GetAllVw_CscheduleList(SelectItemID);
-
+                case MainFormEnum.BindDataBaseToUI.BindTeacherEntityToGridview:
+                    if (BackgroudWorkerForDataBase.CancellationPending) { e.Cancel = true;break; }
+                    int SelectItemID = 0;
+                    ConvertMethod cm = new ConvertMethod();
+                    cm.ConvertStringToInt(SelectItemID.ToString());
+                    Cschedule_BLL Cs_BLL = new Cschedule_BLL();
+                    EntityModelToDataTable = ListMethod.ListToDataTable(Cs_BLL.GetAllVw_CscheduleList(SelectItemID));                    
+                    break;
+                case MainFormEnum.BindDataBaseToUI.BindActiveYearEntityToComboBox:
+                    ActiveYear_BLL Ay_BLL = new ActiveYear_BLL();
+                    var EntityModel = Ay_BLL.GetActiveYearForComboBox();
+                    break;
+                default:
+                    break;
             }
-           
-                if (BackgroudWorkerForDataBase.CancellationPending) { e.Cancel = true; return; }
-           //     BackgroudWorkerForDataBase.ReportProgress(i);
-         
-
-           
         }
 
         private void BackgroudWorkerForDataBase_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (((e.Cancelled == false )|( e.Error == null)))
+            if (((e.Cancelled == false )|( e.Error == null)) &&(EntityModelToDataTable !=null))
             {
-                switch
+                switch (DoWorkState)
+                {
+                    case MainFormEnum.BindDataBaseToUI.BindTeacherEntityToGridview:
+                        
+                            try
+                            {
+                                UICommonDataBind.BindDataGridView(dataGridView1, EntityModelToDataTable);                                
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("程序发生错误,信息: " + ex.Message);
+                            }
+                           finally
+                            {
+                                EntityModelToDataTable = null;
+                                DoWorkState = MainFormEnum.BindDataBaseToUI.NothingToDo;
+                            }
+                    case MainFormEnum.BindDataBaseToUI.BindActiveYearEntityToComboBox:
+                        try
+                        {
+                           // UICommonDataBind.BindComboBox(combo)
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("程序发生错误,信息: " + ex.Message);
+                        }
+                        finally
+                        {
+                            EntityModelToDataTable = null;
+                            DoWorkState = MainFormEnum.BindDataBaseToUI.NothingToDo;
+                        }
 
+                        break;
+                    default:
+                        break;
+                }
 
             }
         }

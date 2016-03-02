@@ -55,6 +55,10 @@
       <Project>{e2d48a02-32cd-4f9e-93db-862bb41d2ca6}</Project>
       <Name>IeidjtuKCB.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IeidjtuKCB_Common\IeidjtuKCB.Common.csproj">
+      <Project>{bca36faf-0a3b-4c89-ae68-4b94fddd3393}</Project>
+      <Name>IeidjtuKCB.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IeidjtuKCB_Model\IeidjtuKCB.Model.csproj">
       <Project>{82990c1e-be50-47bc-8855-ad22e6873f19}</Project>
       <Name>IeidjtuKCB.Model</Name>
