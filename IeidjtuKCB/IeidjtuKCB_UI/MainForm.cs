@@ -13,20 +13,22 @@ using System.Threading;
 
 namespace IeidjtuKCB.UI
 {
-   
+   /// <summary>
+   /// 主页面
+   /// </summary>
     public partial class MainForm : Form
     {
+        #region 变量声明
         /// <summary>
-        /// 用作多线程读取数据库更新用用的委托
+        /// 为便于异步读取执行操作设置的要操作的ID
         /// </summary>
-        /// <param name="Atyid"></param>
         private MainFormEnum.BindDataBaseToUI TaskId = MainFormEnum.BindDataBaseToUI.NothingToDo;
+        /// <summary>
+        /// 绑定用的空DataTable
+        /// </summary>
         private DataTable dt=null;
-        private delegate DataTable BindVw_CscheduleToGridViewCallBack(int actyear);
-        private delegate void BindEntityToComboBoxCallBack(ComboBox combobox);
-        private delegate void BindEntityToGridViewCallBack(DataGridView dGV);
-        private delegate void DisplayDataGridViewDelegate(DataTable myTable);
-        
+
+        #endregion
         public MainForm()
         {
             InitializeComponent();
@@ -39,10 +41,9 @@ namespace IeidjtuKCB.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BindEntityToComboBoxCallBack d = new BindEntityToComboBoxCallBack(MainFormUIBind.ComboBoxBind.BindActiveYearEntitytoCombobox);
-            BindEntityToComboBoxCallBack c = new BindEntityToComboBoxCallBack(MainFormUIBind.ComboBoxBind.BindDepartmentEntitytoCombobox);
-            this.BeginInvoke(d, new object[] { comboBox_Activeyear });
-            this.BeginInvoke(c, new object[] { comboBox_Department_For_Teacher });
+            MainFormUIBind.ComboBoxBind.BindActiveYearEntitytoCombobox(comboBox_Activeyear);
+            MainFormUIBind.ComboBoxBind.BindDepartmentEntitytoCombobox(comboBox_Department_For_Teacher);
+            
             
 
         }
@@ -98,8 +99,6 @@ namespace IeidjtuKCB.UI
                         Teacher_BLL T_BLL = new Teacher_BLL();
                         
                        dt = ListMethod.ListToDataTable(T_BLL.GetTeacherEntityFromDAL(findT.FindTeacher_ID,findT.FindTeacher_Name));
-
-                       
                     }
                     break;
                 case MainFormEnum.BindDataBaseToUI.BindActiveYearEntityToComboBox:
