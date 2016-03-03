@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArgumentsModelForUI.cs" />
     <Compile Include="MainFormEnum.cs" />
     <Compile Include="MainFormUIBind.cs" />
     <Compile Include="UICommonDataBind.cs" />

@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using IeidjtuKCB.BLL;
 using IeidjtuKCB.Model;
+using System.Data;
 namespace IeidjtuKCB.UI.Common
 {/// <summary>
 /// 主界面 控件绑定 方法 封装
@@ -15,11 +16,18 @@ namespace IeidjtuKCB.UI.Common
         /// </summary>
         public static class DataGridViewBind
         {
-            public static void BindTeacherEntityToDataGridView(DataGridView dGV,int DeptID,string TeacherName)
+            public static void GetTeacherEntityToDataGridView(DataGridView dGV,DataTable dt)
             {       try
                 {
-                    Teacher_BLL T_Bll = new Teacher_BLL();              
-                    UICommonDataBind.BindDataGridView(dGV, T_Bll.GetTeacherEntityFromDAL(DeptID,TeacherName));
+                    
+                    var ColumnsNames = new List<string>();
+                    var DisplayNames = new List<string>();
+                    ColumnsNames.Add("PSID"); DisplayNames.Add("ID");
+                    ColumnsNames.Add("StandCode"); DisplayNames.Add("编码");
+                    ColumnsNames.Add("PsName"); DisplayNames.Add("教师姓名");
+                    ColumnsNames.Add("Password"); DisplayNames.Add("密码");
+                    ColumnsNames.Add("Sex"); DisplayNames.Add("性别");
+                    UICommonDataBind.BindDataGridView(dGV, dt, ColumnsNames, DisplayNames);
                 }
                     catch
                 {

@@ -19,7 +19,7 @@ namespace IeidjtuKCB.Common
             //检查实体集合不能为空
             if (entitys == null || entitys.Count < 1)
             {
-                throw new Exception("需转换的集合为空");
+                return null;
             }
             //取出第一个实体的所有Propertie
             Type entityType = entitys[0].GetType();

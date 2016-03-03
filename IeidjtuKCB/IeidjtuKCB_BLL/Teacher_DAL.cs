@@ -39,7 +39,12 @@ namespace IeidjtuKCB.DAL
             }
             else
             {
-                return DB.Context.From<RSDA>()
+                return DeptID <= 0 ? DB.Context.From<RSDA>()
+                           .Select(d => new { d.PSID, d.PsName, d.Password, d.StandCode, d.DeptId, d.Sex })
+                           .Where(d =>  d.PsName.Contains(TeacherName))
+                           .OrderBy(RSDA._.PSID.Asc)
+                           .ToList():
+                            DB.Context.From<RSDA>()
                            .Select(d => new { d.PSID, d.PsName, d.Password, d.StandCode, d.DeptId, d.Sex })
                            .Where(d => d.DeptId == DeptID && d.PsName.Contains(TeacherName))
                            .OrderBy(RSDA._.PSID.Asc)

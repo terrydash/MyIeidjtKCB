@@ -110,12 +110,17 @@ namespace IeidjtuKCB.UI.Common
         public static void BindComboBox<T>(this ComboBox combox, IList<T> list, string displayMember, string valueMember, string displayText)
         {
             AddItem(list, displayMember, displayText, valueMember);
+            ListMethod.ListToDataTable(list);
             combox.DataSource = list;
             combox.DisplayMember = displayMember;
             if (!string.IsNullOrEmpty(valueMember))
                 combox.ValueMember = valueMember;
         }
-
+        private static DataTable ListAddBlankToDataTable<T>(IList<T> list, string displayMember, string displayText, string valueMember)
+        {
+            AddItem(list, displayMember, displayText, valueMember);
+            return ListMethod.ListToDataTable(list);
+        }
         /// <summary>
         ///向要入ComboBox中加入一个提示用的项，该项的value值为0,提示项为DisplayText
         /// </summary>

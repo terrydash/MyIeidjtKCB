@@ -5,10 +5,10 @@ using System.Text;
 
 namespace IeidjtuKCB.Common
 {
-    public class ConvertMethod
+    public static class ConvertMethod
     {
 
-        public int? ConvertStringToInt(string stringToCovert)
+        public static int? ConvertStringToInt(string stringToCovert)
         {
             int outInt;
             try
@@ -16,7 +16,7 @@ namespace IeidjtuKCB.Common
                 int.TryParse(stringToCovert,out outInt);
             }
 
-            catch (Exception ex)
+            catch 
             {
                 return null;
                 
