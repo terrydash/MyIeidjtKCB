@@ -19,6 +19,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB.Interface", "Iei
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IeidjtuKCB.UI.Common", "IeidjtuKCB.UI.Common\IeidjtuKCB.UI.Common.csproj", "{5B8623F0-5794-413F-936F-9F951A033855}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MyTools", "MyTools", "{0327953A-4006-4C80-B9DA-EB2935E2C5B6}"
+	ProjectSection(SolutionItems) = preProject
+		Tools\EPPlus 4.0.1 Documentation (chm-file).zip = Tools\EPPlus 4.0.1 Documentation (chm-file).zip
+		Tools\EPPlus 4.0.5 Sample.zip = Tools\EPPlus 4.0.5 Sample.zip
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
