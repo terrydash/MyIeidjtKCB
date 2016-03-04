@@ -7,7 +7,11 @@ using System.Reflection;
 
 namespace IeidjtuKCB.Common
 {
-    public static class ListMethod
+    #region 针对泛型的一些方法的封装
+    /// <summary>
+    /// 针对泛型的一些方法的封装
+    /// </summary>
+    public static class ListHelper
     {
         /// <summary>
         /// 将泛类型集合List类转换成DataTable
@@ -51,6 +55,7 @@ namespace IeidjtuKCB.Common
             return dt;
         }
     }
+    #endregion
 }
 
 

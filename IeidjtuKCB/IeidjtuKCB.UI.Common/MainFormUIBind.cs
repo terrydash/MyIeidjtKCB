@@ -7,15 +7,25 @@ using IeidjtuKCB.BLL;
 using IeidjtuKCB.Model;
 using System.Data;
 namespace IeidjtuKCB.UI.Common
-{/// <summary>
-/// 主界面 控件绑定 方法 封装
-/// </summary>
+{
+    #region 主界面 控件绑定 方法 封装
+    /// <summary>
+    /// 主界面 控件绑定 方法 封装
+    /// </summary>
     public static class MainFormUIBind
-    {   /// <summary>
+    {
+        #region 针对DataGridView绑定的封装
+        /// <summary>
         /// 针对DataGridView绑定的封装
         /// </summary>
         public static class DataGridViewBind
         {
+            #region 绑定教师信息到GridView public static void GetTeacherEntityToDataGridView(DataGridView dGV,DataTable dt)
+            /// <summary>
+            /// 绑定教师信息到GridView
+            /// </summary>
+            /// <param name="dGV">要绑定的GridView</param>
+            /// <param name="dt">绑定的DataTable</param>
             public static void GetTeacherEntityToDataGridView(DataGridView dGV,DataTable dt)
             {       try
                 {
@@ -27,29 +37,33 @@ namespace IeidjtuKCB.UI.Common
                     ColumnsNames.Add("PsName"); DisplayNames.Add("教师姓名");
                     ColumnsNames.Add("Password"); DisplayNames.Add("密码");
                     ColumnsNames.Add("Sex"); DisplayNames.Add("性别");
-                    UICommonDataBind.BindDataGridView(dGV, dt, ColumnsNames, DisplayNames);
+                    CommonUIDataBindMethod.BindDataGridView(dGV, dt, ColumnsNames, DisplayNames);
                 }
                     catch
                 {
 
                 }
             }
-
-
+            #endregion
         }
+        #endregion
+        #region 针对ComboBox绑定的封装
         /// <summary>
         /// 针对ComboBox绑定的封装
         /// </summary>
         public static class ComboBoxBind
         {
-
+            /// <summary>
+            /// 绑定全部学年信息到ComboBox
+            /// </summary>
+            /// <param name="comboBox"></param>
             public static void BindActiveYearEntitytoCombobox (ComboBox comboBox)
             {
                 try
                 {
                     ActiveYear_BLL ActiveYearBLL = new ActiveYear_BLL();
                     var AllActiveYearList = ActiveYearBLL.GetActiveYearForComboBox();
-                    UICommonDataBind.BindComboBox(comboBox, AllActiveYearList, "ATName", "ATID", "--所有学期--");
+                    CommonUIDataBindMethod.BindComboBox(comboBox, AllActiveYearList, "ATName", "ATID", "--所有学期--");
                     comboBox.SelectedValue = AllActiveYearList.Find(d => d.State == "当前").ATID;
                     ActiveYearBLL = null;
                 }
@@ -65,7 +79,7 @@ namespace IeidjtuKCB.UI.Common
                 {
                    Department_BLL D_Dal = new Department_BLL();
                     var DepartmentList = D_Dal.GetAllEntityFromDAL() ;
-                    UICommonDataBind.BindComboBox(comboBox, DepartmentList, "DeptName", "DeptID", "--所有部门--");
+                    CommonUIDataBindMethod.BindComboBox(comboBox, DepartmentList, "DeptName", "DeptID", "--所有部门--");
                     //comboBox.SelectedValue = DepartmentList.Find(d => d.DeptID == "0").DeptID;
                     D_Dal = null;
                 }
@@ -78,5 +92,8 @@ namespace IeidjtuKCB.UI.Common
             
 
         }
+        #endregion
     }
+
+    #endregion
 }

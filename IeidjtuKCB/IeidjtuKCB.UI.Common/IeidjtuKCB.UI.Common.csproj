@@ -43,7 +43,7 @@
     <Compile Include="ArgumentsModelForUI.cs" />
     <Compile Include="MainFormEnum.cs" />
     <Compile Include="MainFormUIBind.cs" />
-    <Compile Include="UICommonDataBind.cs" />
+    <Compile Include="CommonUIDataBindMethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

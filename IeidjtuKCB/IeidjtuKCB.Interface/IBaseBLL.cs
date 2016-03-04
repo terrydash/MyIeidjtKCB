@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 
 namespace IeidjtuKCB.Interface
-{   /// <summary>
+{   
+    
+    /// <summary>
     ///  BLL层的基础接口
     /// </summary>
     /// <typeparam name="T"></typeparam>

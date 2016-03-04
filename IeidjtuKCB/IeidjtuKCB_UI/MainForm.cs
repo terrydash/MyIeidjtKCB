@@ -54,7 +54,7 @@ namespace IeidjtuKCB.UI
                 TaskId = MainFormEnum.BindDataBaseToUI.BindVwCscheduleEntityToGridview;
                     if (!backgroundWorker.IsBusy)
                     { 
-                            backgroundWorker.RunWorkerAsync((int)ConvertMethod.ConvertStringToInt(comboBox_Activeyear.SelectedValue.ToString()));
+                            backgroundWorker.RunWorkerAsync((int)ConvertHelper.ConvertStringToInt(comboBox_Activeyear.SelectedValue.ToString()));
                     }
             }
         }
@@ -63,7 +63,7 @@ namespace IeidjtuKCB.UI
         { try
                 { 
                     Cschedule_BLL Cs_BLL = new Cschedule_BLL();
-                    dt = ListMethod.ListToDataTable(Cs_BLL.GetAllVw_CscheduleList(Atyid));                   
+                    dt = ListHelper.ListToDataTable(Cs_BLL.GetAllVw_CscheduleList(Atyid));                   
                     Cs_BLL = null; }
                 catch (Exception ex)
                 {
@@ -75,13 +75,15 @@ namespace IeidjtuKCB.UI
             int SelectItemID = 0;
             if (comboBox_Department_For_Teacher.Items.Count > 0)
             {
-                SelectItemID = (int)ConvertMethod.ConvertStringToInt(comboBox_Department_For_Teacher.SelectedValue.ToString());
+                SelectItemID = (int)ConvertHelper.ConvertStringToInt(comboBox_Department_For_Teacher.SelectedValue.ToString());
                 TaskId = MainFormEnum.BindDataBaseToUI.BindTeacherEntityToGridview;
                 ArgumentsModelForUI.FindTeacher findT = new ArgumentsModelForUI.FindTeacher();
                 findT.FindTeacher_ID = SelectItemID;
                 findT.FindTeacher_Name = textBox_TeacherNameToFind.Text;
-                backgroundWorker.RunWorkerAsync(findT);
-
+                if (!backgroundWorker.IsBusy)
+                { 
+                    backgroundWorker.RunWorkerAsync(findT);
+                }
             }
         }
 
@@ -98,7 +100,7 @@ namespace IeidjtuKCB.UI
                         ArgumentsModelForUI.FindTeacher findT = (ArgumentsModelForUI.FindTeacher)e.Argument;
                         Teacher_BLL T_BLL = new Teacher_BLL();
                         
-                       dt = ListMethod.ListToDataTable(T_BLL.GetTeacherEntityFromDAL(findT.FindTeacher_ID,findT.FindTeacher_Name));
+                       dt = ListHelper.ListToDataTable(T_BLL.GetTeacherEntityFromDAL(findT.FindTeacher_ID,findT.FindTeacher_Name));
                     }
                     break;
                 case MainFormEnum.BindDataBaseToUI.BindActiveYearEntityToComboBox:

@@ -44,10 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConvertMethod.cs" />
-    <Compile Include="DataBindingControl.cs" />
+    <Compile Include="ConvertHelper.cs" />
     <Compile Include="ExcelHelper.cs" />
-    <Compile Include="ListMethod.cs" />
+    <Compile Include="ListHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FileHelper.cs" />
   </ItemGroup>
