@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using IeidjtuKCB.BLL;
 using IeidjtuKCB.Model;
 using System.Data;
+
+
 namespace IeidjtuKCB.UI.Common
 {
     #region 主界面 控件绑定 方法 封装
@@ -14,6 +16,18 @@ namespace IeidjtuKCB.UI.Common
     /// </summary>
     public static class MainFormUIBind
     {
+
+        #region  控件绑定公用程序
+        public static void DataTableBindContorl<ArgumentEntity>(Control C,DataTable dt,List<ArgumentEntity> ArgumentEntitys)
+        {
+            MessageBox.Show(C.GetType().ToString());
+            
+            
+        }
+
+
+
+        #endregion
         #region 针对DataGridView绑定的封装
         /// <summary>
         /// 针对DataGridView绑定的封装

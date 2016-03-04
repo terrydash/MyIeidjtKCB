@@ -9,7 +9,7 @@ using IeidjtuKCB.Common;
 using IeidjtuKCB.BLL;
 using System.Windows.Forms;
 using IeidjtuKCB.UI.Common;
-using System.Threading;
+
 
 namespace IeidjtuKCB.UI
 {
@@ -71,7 +71,16 @@ namespace IeidjtuKCB.UI
                 }
         }
         private void Btn_FindTeacher_Click(object sender, EventArgs e)
-        {
+        { 
+            BindArgumentEntity BAE = new BindArgumentEntity();
+            BAE.ArgumentName.Add("DeptID");
+            BAE.ArgumentValue.Add(comboBox_Department_For_Teacher.SelectedValue.ToString());
+            BAE._ArgumentValueType.Add(BindArgumentEntity.ArgumentValueType.Int);
+
+            Type T = dataGridView1.GetType();
+            MessageBox.Show(T.ToString());
+
+            /*
             int SelectItemID = 0;
             if (comboBox_Department_For_Teacher.Items.Count > 0)
             {
@@ -85,6 +94,7 @@ namespace IeidjtuKCB.UI
                     backgroundWorker.RunWorkerAsync(findT);
                 }
             }
+             */
         }
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)

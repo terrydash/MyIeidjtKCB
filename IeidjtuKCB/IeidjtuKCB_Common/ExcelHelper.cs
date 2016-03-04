@@ -123,7 +123,7 @@ namespace IeidjtuKCB.Common
                                     break;
                             }
                         }
-                        catch (KeyNotFoundException ex)
+                        catch 
                         { }
                     }
                     resultList.Add(result);

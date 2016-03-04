@@ -15,6 +15,9 @@ namespace IeidjtuKCB.UI.Common
     /// </summary>
     public static class CommonUIDataBindMethod
     {
+
+
+       
         #region 将泛型T绑定到DATAGRIDVIEW上BindDataGridView<T>(this DataGridView dGV, IList<T> list, List<string> ColumnNames, List<string> DisplayColumnNames)
         /// <summary>
         /// 将泛型T绑定到DATAGRIDVIEW上
