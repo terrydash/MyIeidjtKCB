@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArgumentEntity.cs" />
-    <Compile Include="ArgumentsModelForUI.cs" />
+    <Compile Include="BindArgumentEntity.cs" />
+    <Compile Include="ColumnHeaderTextModel.cs" />
     <Compile Include="MainFormEnum.cs" />
     <Compile Include="MainFormUIBind.cs" />
     <Compile Include="CommonUIDataBindMethod.cs" />

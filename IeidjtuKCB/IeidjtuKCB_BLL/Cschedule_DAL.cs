@@ -2,10 +2,12 @@
 using IeidjtuKCB.Model;
 using IeidjtuKCB.Common;
 using IeidjtuKCB.DBSession;
+using IeidjtuKCB.Interface;
+using System;
 
 namespace IeidjtuKCB.DAL
 {
-    public class Cschedule_DAL
+    public class Cschedule_DAL:IBaseDAL<Vw_Cschedule>,IGetKcb<Vw_Cschedule>
 
     {
         public List<Vw_Cschedule> GetAllVw_CscheduleListFromAtyid(int Atyid)
@@ -20,5 +22,26 @@ namespace IeidjtuKCB.DAL
                             
                             .ToList();
         }
+
+        public List<Vw_Cschedule> GetEntityFromDB(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Vw_Cschedule> GetAllEntityFromDB()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Vw_Cschedule> GetKCBFormVw_Cschedule_ForAtyID(int AtyID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Vw_Cschedule> GetKCBFormVw_Cschedule_ForTCID(int TCID)
+        {
+            throw new NotImplementedException();
+        }
+       
     }
 }

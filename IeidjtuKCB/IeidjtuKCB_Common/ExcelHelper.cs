@@ -28,7 +28,7 @@ namespace IeidjtuKCB.Common
                 using (ExcelPackage ep = new ExcelPackage(file, OpenPassword))
                 {
                     ExcelWorksheet ws = ep.Workbook.Worksheets.Add(typeof(T).Name);
-                    ws.Cells["A1"].LoadFromCollection(data, true, TableStyles.Medium10);
+                    ws.Cells["A1"].LoadFromCollection(data, false, TableStyles.Medium10);
 
                     ep.Save(OpenPassword);
                 }

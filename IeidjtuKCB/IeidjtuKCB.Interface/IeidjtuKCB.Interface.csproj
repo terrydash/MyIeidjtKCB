@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="IBaseBLL.cs" />
     <Compile Include="IBaseDAL.cs" />
+    <Compile Include="IGetKcb.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

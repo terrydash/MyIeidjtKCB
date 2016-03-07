@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.buttonKCB2Excel = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -249,11 +250,22 @@
             this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
             this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
             // 
+            // buttonKCB2Excel
+            // 
+            this.buttonKCB2Excel.Location = new System.Drawing.Point(272, 30);
+            this.buttonKCB2Excel.Name = "buttonKCB2Excel";
+            this.buttonKCB2Excel.Size = new System.Drawing.Size(113, 23);
+            this.buttonKCB2Excel.TabIndex = 6;
+            this.buttonKCB2Excel.Text = "导出Excel";
+            this.buttonKCB2Excel.UseVisualStyleBackColor = true;
+            this.buttonKCB2Excel.Click += new System.EventHandler(this.buttonKCB2Excel_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1355, 880);
+            this.Controls.Add(this.buttonKCB2Excel);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
@@ -302,6 +314,7 @@
         private System.Windows.Forms.DataGridView dataGridView_Teacher;
         private System.Windows.Forms.Button Btn_FindTeacher;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
+        private System.Windows.Forms.Button buttonKCB2Excel;
     }
 }
 

@@ -143,6 +143,8 @@ namespace IeidjtuKCB.UI.Common
             if (!string.IsNullOrEmpty(valueMember))
                 combox.ValueMember = valueMember;
         }
+
+        
         #endregion
         #region 将List添加一个空白项后返回一个DataTalbe
         /// <summary>

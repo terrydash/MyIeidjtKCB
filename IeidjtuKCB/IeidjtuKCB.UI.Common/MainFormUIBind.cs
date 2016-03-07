@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using IeidjtuKCB.BLL;
-using IeidjtuKCB.Model;
 using System.Data;
 
 
@@ -16,14 +15,32 @@ namespace IeidjtuKCB.UI.Common
     /// </summary>
     public static class MainFormUIBind
     {
-
+        #region 控件通用的绑定方法
+        /// <summary>
+        /// 控件通用的绑定方法
+        /// </summary>
+        /// <typeparam name="BindArgumentEntity">用于绑定的参数</typeparam>
+        /// <param name="C">控件</param>
+        /// <param name="dt">要绑定的数据源</param>
+        /// <param name="ArgumentEntitys">绑定的参数集合</param>
         #region  控件绑定公用程序
-        public static void DataTableBindContorl<ArgumentEntity>(Control C,DataTable dt,List<ArgumentEntity> ArgumentEntitys)
-        {
-            MessageBox.Show(C.GetType().ToString());
-            
-            
+        public static void DataTableBindContorl<BindArgumentEntity>(Control C,DataTable dt,List<BindArgumentEntity> ArgumentEntitys)
+        { if (dt!=null)
+            { 
+                
+                if (C is ComboBox)
+                {
+                   
+                }
+                else if(C is DataGridView)
+                {
+                    DataGridViewBind.GetTeacherEntityToDataGridView((DataGridView)C,dt);
+                }
+            }
+
+
         }
+        #endregion
 
 
 
@@ -43,15 +60,8 @@ namespace IeidjtuKCB.UI.Common
             public static void GetTeacherEntityToDataGridView(DataGridView dGV,DataTable dt)
             {       try
                 {
-                    
-                    var ColumnsNames = new List<string>();
-                    var DisplayNames = new List<string>();
-                    ColumnsNames.Add("PSID"); DisplayNames.Add("ID");
-                    ColumnsNames.Add("StandCode"); DisplayNames.Add("编码");
-                    ColumnsNames.Add("PsName"); DisplayNames.Add("教师姓名");
-                    ColumnsNames.Add("Password"); DisplayNames.Add("密码");
-                    ColumnsNames.Add("Sex"); DisplayNames.Add("性别");
-                    CommonUIDataBindMethod.BindDataGridView(dGV, dt, ColumnsNames, DisplayNames);
+                    CommonUIDataBindMethod.BindDataGridView(dGV, dt, ColumnHeaderTextModel.Teacher.TeacherForDataGridView.ColumnsNames(), ColumnHeaderTextModel.Teacher.TeacherForDataGridView.DisplayNames());
+
                 }
                     catch
                 {
