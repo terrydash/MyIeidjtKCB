@@ -97,7 +97,7 @@ namespace IeidjtuKCB.UI
                         int id = (int)e.Argument;
 
                         Cschedule_BLL Cs_BLL = new Cschedule_BLL();
-                        dt = ListHelper.ListToDataTable(Cs_BLL.GetAllVw_CscheduleList(id));
+                        dt = ListHelper.ListToDataTable(Cs_BLL.GetEntityFromDAL(id));
                     }
                     break;
                   
@@ -135,11 +135,62 @@ namespace IeidjtuKCB.UI
 
         private void buttonKCB2Excel_Click(object sender, EventArgs e)
         {
-            string filename = System.Environment.CurrentDirectory  +@"\kcb.xlsx";
-            Cschedule_BLL C_BLL = new Cschedule_BLL();
+            if (comboBox_Activeyear.Items.Count>0)
+            {
+                bool finderr = false;
+                ActiveYear_BLL A_BLL = new ActiveYear_BLL();
+                int atyid = A_BLL.GetNowActvieYearID();
+                    try
+                        {       
+                             atyid = ConvertHelper.ConvertStringToInt(comboBox_Activeyear.SelectedValue.ToString());
+                         }
+                     catch
+                        {
+                    MessageBox.Show("错误");
+                         }
+                string title="大连科技学院" + A_BLL.GetAllEntityFromDAL().Find(d => d.ATID == atyid).ATName + "课程表";
+                string filefullname = System.Environment.CurrentDirectory  +@"\"+title+".xlsx";
+                
+                if (System.IO.File.Exists(filefullname))
+                {
+                    try
+                    {
+                        System.IO.File.Delete(filefullname);
+                        
+                    }
+                    catch
+                    {
+                        finderr = true;
+                        MessageBox.Show("文件占用中无法删除！");
+                    }
 
-            MessageBox.Show(filename);
-            ExcelHelper.SaveToExcel(C_BLL.GetAllVw_CscheduleList(ConvertHelper.ConvertStringToInt(comboBox_Activeyear.SelectedValue.ToString())), filename, "");
+                }
+                Cschedule_BLL C_BLL = new Cschedule_BLL();
+             
+              
+                
+                try
+                {
+                    
+                    MakeExcelModel MEM = new MakeExcelModel();                    
+                    MEM.Filename = filefullname;
+                    MEM.TitleName = title;
+                    MEM.PassWord = "";
+                    MEM.dataTable = C_BLL.GetKCBFormVw_Cschedule_ForAtyID(atyid);
+                    MEM.HeaderText = new List<string> { "课程代码", "课程名称", "教学班级名称", "人数", "任课教师", "起始周", "结束周", "单双周", "星期", "节数", "教学楼", "教室", "教室容纳人数" };
+                    ExcelHelper.SaveToExcel(MEM);
+                }
+                catch
+                {
+                    finderr = true;
+                    MessageBox.Show("文件占用中无法生成！");
+
+                }
+                    if (System.IO.File.Exists(filefullname) & finderr==false)
+                    {
+                       System.Diagnostics.Process.Start(filefullname);
+                    }
+            }
         }
     }
 }

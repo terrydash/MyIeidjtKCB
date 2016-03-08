@@ -3,34 +3,34 @@ using IeidjtuKCB.Model;
 using IeidjtuKCB.Common;
 using IeidjtuKCB.DBSession;
 using IeidjtuKCB.Interface;
+using System.Linq.Expressions;
+using System.Linq;
 using System;
 
 namespace IeidjtuKCB.DAL
 {
-    public class Cschedule_DAL:IBaseDAL<Vw_Cschedule>,IGetKcb<Vw_Cschedule>
+    public class Cschedule_DAL:IBaseDAL<Vw_Cschedule> 
 
     {
-        public List<Vw_Cschedule> GetAllVw_CscheduleListFromAtyid(int Atyid)
+        public List<Vw_Cschedule> GetEntityFromDB(int Atyid) 
         {
 
             return Atyid <= 0 ? DB.Context.From<Vw_Cschedule>()
+                           
                             
-                            
-                            .ToList() : DB.Context.From<Vw_Cschedule>()
+                            .ToList() : 
+                            DB.Context.From<Vw_Cschedule>()
                             
                             .Where(d => d.AtyID == Atyid)
                             
                             .ToList();
         }
 
-        public List<Vw_Cschedule> GetEntityFromDB(int id)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public List<Vw_Cschedule> GetAllEntityFromDB()
         {
-            throw new NotImplementedException();
+            return GetEntityFromDB(0);
         }
 
         public List<Vw_Cschedule> GetKCBFormVw_Cschedule_ForAtyID(int AtyID)
@@ -42,6 +42,5 @@ namespace IeidjtuKCB.DAL
         {
             throw new NotImplementedException();
         }
-       
     }
 }

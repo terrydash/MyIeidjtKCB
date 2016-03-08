@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using System.Collections.Generic;
+using System.Data;
 namespace IeidjtuKCB.Interface
-{   
-    
+{
+
     /// <summary>
     ///  BLL层的基础接口
     /// </summary>
@@ -22,5 +19,6 @@ namespace IeidjtuKCB.Interface
         /// </summary>
         /// <returns>返回全部实体</returns>
         List<T> GetAllEntityFromDAL();
+        //DataTable GetEntityFromDALToDataTable();
     }
 }

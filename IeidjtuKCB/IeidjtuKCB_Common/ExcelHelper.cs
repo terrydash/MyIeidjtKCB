@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using OfficeOpenXml;
 using OfficeOpenXml.Table;
 using System.Reflection;
+using OfficeOpenXml.Style;
 
 namespace IeidjtuKCB.Common
 {
@@ -20,7 +19,7 @@ namespace IeidjtuKCB.Common
         /// <param name="data">数据列表</param>
         /// <param name="FileName">Excel文件</param>
         /// <param name="OpenPassword">Excel打开密码</param>
-        public static void SaveToExcel<T>(IEnumerable<T> data, string FileName, string OpenPassword = "")
+        public static void SaveToExcel<T>(IEnumerable<T> data, string FileName, bool IsprintHeaders, string OpenPassword = "")
         {
             FileInfo file = new FileInfo(FileName);
             try
@@ -28,8 +27,8 @@ namespace IeidjtuKCB.Common
                 using (ExcelPackage ep = new ExcelPackage(file, OpenPassword))
                 {
                     ExcelWorksheet ws = ep.Workbook.Worksheets.Add(typeof(T).Name);
-                    ws.Cells["A1"].LoadFromCollection(data, false, TableStyles.Medium10);
-
+                    ws.Cells["A1"].LoadFromCollection(data, IsprintHeaders, TableStyles.Medium10);
+                    
                     ep.Save(OpenPassword);
                 }
             }
@@ -39,6 +38,53 @@ namespace IeidjtuKCB.Common
             }
         }
         #endregion
+        public static void SaveToExcel(IeidjtuKCB.Common.MakeExcelModel MEM)
+        {if (MEM!=null)
+            {  if (!string.IsNullOrWhiteSpace(MEM.Filename))
+                { 
+
+
+                FileInfo file = new FileInfo(MEM.Filename);
+                    try
+                    {
+                        using (ExcelPackage ep = new ExcelPackage(file, MEM.PassWord))
+                            {
+                                ExcelWorksheet ws = ep.Workbook.Worksheets.Add(MEM.TitleName);
+                                ws.Cells["A1"].Value = MEM.TitleName;
+                            ws.Cells["A1"].Style.Font.Bold = true;
+                            ws.Cells["A1"].Style.Font.Name= "微软雅黑";
+                            ws.Cells["A1"].Style.Font.Size = 24;
+                            
+                            ws.Cells[1, 1, 1, MEM.HeaderText.Count].Merge = true;
+                            
+                            for (int i = 1; i <= MEM.HeaderText.Count; i++)
+                            {
+                                ws.Cells[2, i].Value = MEM.HeaderText[i - 1];
+                                ws.Cells[2, i].Style.Font.Bold = true;
+                                ws.Cells[2, i].Style.Font.Name = "微软雅黑";
+                                ws.Cells[2, i].Style.Font.Size = 11;
+                                
+                            }                            
+                            
+                            
+                            ws.Cells[3,1].LoadFromDataTable(MEM.dataTable, false, TableStyles.Medium13);
+                            string rng = ws.Dimension.Address.ToUpper();
+                            ws.Cells[rng].Style.HorizontalAlignment= ExcelHorizontalAlignment.Center;
+                            ws.Cells[rng].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            ws.Cells[rng].Style.Numberformat.Format = "@";
+                            ws.Cells[rng].AutoFitColumns();
+                            ws.View.FreezePanes(3,1);
+                            ep.Save(MEM.PassWord);
+                            }
+                        
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                 }
+                }
+            }
+        }
 
         #region 从Excel中加载数据（泛型）+IEnumerable<T> LoadFromExcel<T>(string FileName) where T : new()
         /// <summary>

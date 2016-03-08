@@ -45,8 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConvertHelper.cs" />
+    <Compile Include="DataTableHelper.cs" />
     <Compile Include="ExcelHelper.cs" />
     <Compile Include="ListHelper.cs" />
+    <Compile Include="MakeExcelModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FileHelper.cs" />
   </ItemGroup>
