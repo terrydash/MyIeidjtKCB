@@ -11,11 +11,11 @@ namespace IeidjtuKCB.DBSession
 {   /// <summary>
     /// 数据库连接上下文
     /// </summary>
-    public  class DB
+    public  class DataBase
     {
-        public static DbSession Context2 = new DbSession(DatabaseType.SqlServer9, @"Data Source=DataServer;Database=Education;User Id=sa;Password=52Xuguoxu;");//服务器
+        public static DbSession Context = new DbSession(DatabaseType.SqlServer9, @"Data Source=DataServer;Database=Education;User Id=sa;Password=52Xuguoxu;");//服务器
         public static DbSession Context1 = new DbSession(DatabaseType.SqlServer9, @"Data Source=WIN-79FIINOQABU;Database=Education;User Id=sa;Password=52Xuguoxu;");//家
-        public static  DbSession Context = new DbSession(DatabaseType.SqlServer9, @"Data Source=.\XUGUOXU54;Database=Education;User Id=sa;Password=52Xuguoxu;");//单位
+        public static  DbSession Context2 = new DbSession(DatabaseType.SqlServer9, @"Data Source=.\XUGUOXU54;Database=Education;User Id=sa;Password=52Xuguoxu;");//单位
         /// <summary>
         /// 执行带参数的SQL语句
         /// </summary>

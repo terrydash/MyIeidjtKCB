@@ -16,11 +16,11 @@ namespace IeidjtuKCB.DAL
         public List<Vw_Cschedule> GetEntityFromDB(int Atyid) 
         {
 
-            return Atyid <= 0 ? DB.Context.From<Vw_Cschedule>()
+            return Atyid <= 0 ? DataBase.Context.From<Vw_Cschedule>()
                            
                             
                             .ToList() : 
-                            DB.Context.From<Vw_Cschedule>()
+                            DataBase.Context.From<Vw_Cschedule>()
                             
                             .Where(d => d.AtyID == Atyid)
                             

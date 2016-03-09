@@ -19,10 +19,10 @@ namespace IeidjtuKCB.DAL
 
         public List<Vw_DeptMent> GetEntityFromDB(int id)
         {
-            return id <= 0 ? DB.Context.From<Vw_DeptMent>()
+            return id <= 0 ? DataBase.Context.From<Vw_DeptMent>()
                             .Select(d => new { d.DeptID, d.DeptName, d.DeptCode, d.Tel })
                             .OrderBy(Vw_DeptMent._.DeptID.Asc)
-                            .ToList() : DB.Context.From<Vw_DeptMent>()
+                            .ToList() : DataBase.Context.From<Vw_DeptMent>()
                             .Select(d => new { d.DeptID, d.DeptName, d.DeptCode, d.Tel })
                             .Where(d => d.DeptID == id)
                             .OrderBy(Vw_DeptMent._.DeptID.Asc)

@@ -16,7 +16,7 @@ namespace IeidjtuKCB.DAL
 
         public List<Activeyear> GetAllEntityFromDB()
         {
-            return DB.Context.From<Activeyear>()
+            return DataBase.Context.From<Activeyear>()
                             .Select(d => new { d.ATID, d.ATName, d.PKstate, d.State })
                             .OrderBy(Activeyear._.ATID.Desc)
                             .ToList();
@@ -24,10 +24,10 @@ namespace IeidjtuKCB.DAL
 
         public List<Activeyear> GetEntityFromDB(int id)
         {
-                return id <= 0 ? DB.Context.From<Activeyear>()
+                return id <= 0 ? DataBase.Context.From<Activeyear>()
                             .Select(d => new { d.ATID, d.ATName, d.PKstate, d.State })
                             .OrderBy(Activeyear._.ATID.Desc)
-                            .ToList() : DB.Context.From<Activeyear>()
+                            .ToList() : DataBase.Context.From<Activeyear>()
                             .Select(d => new { d.ATID, d.ATName, d.PKstate, d.State })
                             .Where(d => d.ATID == id)
                             .OrderBy(Activeyear._.ATID.Desc)

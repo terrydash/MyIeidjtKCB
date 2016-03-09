@@ -18,10 +18,10 @@ namespace IeidjtuKCB.DAL
 
         public List<vw_Rsda> GetEntityFromDB(int id)
         {
-            return id <= 0 ? DB.Context.From<vw_Rsda>()
+            return id <= 0 ? DataBase.Context.From<vw_Rsda>()
                             .Select(d => new { d.PSID,d.PsName,d.Password,d.StandCode,d.DeptCode})
                             .OrderBy(vw_Rsda._.PSID.Asc)
-                            .ToList() : DB.Context.From<vw_Rsda> ()
+                            .ToList() : DataBase.Context.From<vw_Rsda> ()
                             .Select(d => new { d.PSID, d.PsName, d.Password, d.StandCode, d.DeptCode })
                             .Where(d => d.PSID == id)
                             .OrderBy(vw_Rsda._.PSID.Asc)
