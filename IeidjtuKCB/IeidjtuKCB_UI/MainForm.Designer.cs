@@ -39,6 +39,7 @@
             this.课程课表查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonToTeacherKCB = new System.Windows.Forms.Button();
             this.Btn_FindTeacher = new System.Windows.Forms.Button();
             this.dataGridView_Teacher = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,7 +52,7 @@
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.buttonKCB2Excel = new System.Windows.Forms.Button();
             this.buttonKCBtoGridView = new System.Windows.Forms.Button();
-            this.buttonToTeacherKCB = new System.Windows.Forms.Button();
+            this.backgroundWorkerForShowKCB = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -163,6 +164,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "教师课表查询";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // buttonToTeacherKCB
+            // 
+            this.buttonToTeacherKCB.Location = new System.Drawing.Point(504, 16);
+            this.buttonToTeacherKCB.Name = "buttonToTeacherKCB";
+            this.buttonToTeacherKCB.Size = new System.Drawing.Size(75, 23);
+            this.buttonToTeacherKCB.TabIndex = 8;
+            this.buttonToTeacherKCB.Text = "教师课表";
+            this.buttonToTeacherKCB.UseVisualStyleBackColor = true;
+            this.buttonToTeacherKCB.Click += new System.EventHandler(this.buttonToTeacherKCB_Click);
             // 
             // Btn_FindTeacher
             // 
@@ -284,15 +295,9 @@
             this.buttonKCBtoGridView.UseVisualStyleBackColor = true;
             this.buttonKCBtoGridView.Click += new System.EventHandler(this.buttonKCBtoGridView_Click);
             // 
-            // buttonToTeacherKCB
+            // backgroundWorkerForShowKCB
             // 
-            this.buttonToTeacherKCB.Location = new System.Drawing.Point(504, 16);
-            this.buttonToTeacherKCB.Name = "buttonToTeacherKCB";
-            this.buttonToTeacherKCB.Size = new System.Drawing.Size(75, 23);
-            this.buttonToTeacherKCB.TabIndex = 8;
-            this.buttonToTeacherKCB.Text = "教师课表";
-            this.buttonToTeacherKCB.UseVisualStyleBackColor = true;
-            this.buttonToTeacherKCB.Click += new System.EventHandler(this.buttonToTeacherKCB_Click);
+            this.backgroundWorkerForShowKCB.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerForShowKCB_DoWork);
             // 
             // MainForm
             // 
@@ -352,6 +357,7 @@
         private System.Windows.Forms.Button buttonKCB2Excel;
         private System.Windows.Forms.Button buttonKCBtoGridView;
         private System.Windows.Forms.Button buttonToTeacherKCB;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerForShowKCB;
     }
 }
 

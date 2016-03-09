@@ -19,14 +19,31 @@ namespace IeidjtuKCB.Model
         { return "[TEACHERCODE]".ToUpper(); }   //教师编号
         public static string DeptName()
         { return "[DEPTNAME]".ToUpper(); }
+        public static List<string> Section()
+        {
+            return new List<string> { "1-2节", "3-4节", "5-6节","7-8节","9-10节","11-12节","13-14节" };
+        }
+        public static List<string> KCBDayAndSection()     //用于清空没有课程表的空白标记
+        {
+            List<string> StrList = new List<string>();
+            for (int i = 1; i <= 7; i++)
+            {
+                foreach (var item in Section())
+                {
+                    StrList.Add(("[DAY" + i.ToString() + "_" + item + "]").ToUpper());
+
+                }
+            }
+            return StrList;
+        }
         /// <summary>
         /// 课程表具体在哪节
         /// </summary>
         /// <param name="dayofweek">星期几</param>
         /// <param name="section">哪节课</param>
         /// <returns>在HTML里的标记</returns>
-        public static string KCBDayAndSection(int dayofweek,string section)     //课程表具体再
-        { return "[D" + dayofweek.ToString() + "_" + section + "]".ToUpper();        }
+        public static string KCBDayAndSection(int? dayofweek,string section)     //课程表具体再
+        { return ("[DAY" + dayofweek.ToString() + "_" + section + "]").ToUpper();        }
 
     }/// <summary>
      /// 课程表抽象实体 便于生成课程用
@@ -49,6 +66,7 @@ namespace IeidjtuKCB.Model
         public int? CCID { get; set; }              //Curricula (课程库表)的ID
         public int? CSID { get; set; }              //Cshe (课程库表)的ID
         public string Section { get; set; }              //上课的节数
+        public string TCName { get; set; }              //教学班级名称
     }
    
     

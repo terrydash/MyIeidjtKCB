@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IeidjtuKCB.Common
 {
-    public static class TimeHelper
+    public static class DateTimeHelper
     {
         /// <summary>  
         /// 获取时间戳  

@@ -9,14 +9,15 @@ namespace IeidjtuKCB.BLL
 {
     public class Vw_Teacher_BLL : IBaseBLL<vw_Rsda>
     {
-        private Vw_Teacher_BLL T_BLL = new Vw_Teacher_BLL();
+        
         public List<vw_Rsda> GetAllEntityFromDAL()
-        {
+        { Vw_Teacher_BLL T_BLL = new Vw_Teacher_BLL();
             return T_BLL.GetAllEntityFromDAL();
         }
 
         public List<vw_Rsda> GetEntityFromDAL(int ID)
         {
+            Vw_Teacher_BLL T_BLL = new Vw_Teacher_BLL();
             return T_BLL.GetEntityFromDAL(ID);
         }
     }

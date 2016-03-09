@@ -181,7 +181,16 @@ namespace IeidjtuKCB.UI
                 }
                     if (System.IO.File.Exists(filefullname) & finderr==false)
                     {
-                       System.Diagnostics.Process.Start(filefullname);
+                    try
+                    {
+                        System.Diagnostics.Process.Start(filefullname);
+                    }
+                    catch 
+                    {
+
+                        MessageBox.Show("当前系统没有安装EXCEL,或者EXCEL注册信息不全，无法自动打开生成的EXCEL，请手工打开！");
+                    }
+                      
                     }
             }
         }
@@ -205,11 +214,70 @@ namespace IeidjtuKCB.UI
 
         private void buttonToTeacherKCB_Click(object sender, EventArgs e)
         {
-            if (dataGridView_Teacher.Rows.Count > 0)
+            if (dataGridView_Teacher.Rows.Count > 0 & comboBox_Activeyear.Items.Count > 0)
             {
-                if (dataGridView_Teacher.SelectedRows.Count>0 & dataGridView_Teacher.SelectedCells[0]!=null)
+                if (dataGridView_Teacher.SelectedRows.Count > 0 & dataGridView_Teacher.SelectedCells[0] != null & comboBox_Activeyear.SelectedValue != null)
+                {
+                    if (ConvertHelper.ConvertStringToInt(comboBox_Activeyear.SelectedValue.ToString())>0)
+                    {
+                        
+                        List<BindArgumentEntity> BAEList = new List<BindArgumentEntity>();
+
+                        BAEList.Add(new BindArgumentEntity { ArgumentName = "ActyearID", ArgumentValue = comboBox_Activeyear.SelectedValue.ToString(), ArgumentValueDataType = BindArgumentEntity._ArgumentValueDataType.Int });
+                        BAEList.Add(new BindArgumentEntity { ArgumentName = "PSID", ArgumentValue = dataGridView_Teacher.SelectedCells[0].Value.ToString(), ArgumentValueDataType = BindArgumentEntity._ArgumentValueDataType.Int });
+                        BAEList.Add(new BindArgumentEntity { ArgumentName = "FileName", ArgumentValue = System.Environment.CurrentDirectory + @"\" + DateTimeHelper.GetTimeStamp() + @".html", ArgumentValueDataType = BindArgumentEntity._ArgumentValueDataType.String });
+                        backgroundWorkerForShowKCB.RunWorkerAsync(BAEList);
+                    }
+
+                }
+            }
+           
+        }
+
+        private void backgroundWorkerForShowKCB_DoWork(object sender, DoWorkEventArgs e)
+        {
+                   if (e.Argument!=null)
+            {
+                    int actyearid=0;
+                    int psid=0;
+                    string filename="";
+                    List<BindArgumentEntity> BAEList = e.Argument as List<BindArgumentEntity>;
+                foreach (var item in BAEList)
+                {
+                    switch (item.ArgumentName.ToUpper())
+                    {   case "ACTYEARID":
+                            actyearid = ConvertHelper.ConvertStringToInt(item.ArgumentValue);
+                            break;
+                        case "PSID":
+                            psid = ConvertHelper.ConvertStringToInt(item.ArgumentValue);
+                            break;
+                        case "FILENAME":
+                            filename = item.ArgumentValue;
+                            break;
+                        default:
+                            return;
+                            
+                    }
+
+
+                }
+
+                if (actyearid!=0 | psid!=0 | filename!=string.Empty)
                 { 
-                    MessageBox.Show(dataGridView_Teacher.SelectedCells[0].Value.ToString());
+
+                    if (MakeKCBShowinBrowers.MakeTeacherKCBShowinBrowers(actyearid, psid, filename))
+                            {
+                                 try
+                                      {
+                                         System.Diagnostics.Process.Start(filename);
+                                      }
+                                catch
+                                        {
+
+                                            MessageBox.Show("生成文件错误或是当前系统没有默认打开HTML的浏览器！");
+                                            }
+
+                                 }
                 }
             }
         }
