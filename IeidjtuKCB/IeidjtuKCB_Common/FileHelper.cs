@@ -28,7 +28,7 @@ namespace IeidjtuKCB.Common
                     FileStream fs = File.Create(fname);
                     fs.Close();
                 }
-                StreamWriter sw = new StreamWriter(fname, false, System.Text.Encoding.Default);
+                StreamWriter sw = new StreamWriter(fname, false, System.Text.Encoding.UTF8);
                 sw.WriteLine(content);
                 sw.Close();
                 sw.Dispose();
@@ -53,7 +53,7 @@ namespace IeidjtuKCB.Common
             {
                
 
-                StreamReader sr = new StreamReader(filename, System.Text.Encoding.Default);
+                StreamReader sr = new StreamReader(filename, System.Text.Encoding.UTF8);
                 while ((line = sr.ReadLine()) != null)
                 {
                     htmltext.Append(line);

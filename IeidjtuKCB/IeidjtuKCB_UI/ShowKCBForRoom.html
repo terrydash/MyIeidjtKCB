@@ -4,11 +4,39 @@
 <head>
     <meta charset="utf-8" />
     <title>[TITLE]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- basic styles -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+    <!--[if IE 7]>
+      <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+    <![endif]-->
+    <!-- page specific plugin styles -->
+    <!-- ace styles -->
+
+    <link rel="stylesheet" href="assets/css/ace.min.css" />
+    <link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+    <![endif]-->
+    <!-- inline styles related to this page -->
+    <!-- ace settings handler -->
+
+    <script src="assets/js/ace-extra.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
 
 
-    <table align="center" border="0" cellpadding="3" cellspacing="0" width="100%">
+    <table align="center">
         <tr>
             <td>
                 <p align="center">
@@ -19,193 +47,199 @@
         </tr>
         <tr>
             <td>
-                <p align="center"><font size="4"><B>大连科技学院教室课程表</B>
+                <p align="center"><font size="4"><B>大连科技学院教师课程表</B></font></p>
             </td>
         </tr>
         <tr>
             <td>
                 <B>
-                    [ROOM]&nbsp
-                    [ROOMNAME]&nbsp
-                    容纳人数：[ROOMNUM]&nbsp
-                    所在校区：旅顺
+                    教师:[TEACHERCODE]&nbsp[TEACHERNAME]&nbsp
+                    所属部门：[DEPTNAME]&nbsp
                 </B>
             </td>
         </tr>
     </table>
-    <table align="center" border="1" cellpadding="3" cellspacing="0" width="100%">
-        <tr>
-            <td align="center" width="120">&nbsp</td>
-            <td align="center">星期一</td>
-            <td align="center">星期二</td>
-            <td align="center">星期三</td>
-            <td align="center">星期四</td>
-            <td align="center">星期五</td>
-            <td align="center">星期六</td>
-            <td align="center">星期日</td>
-        </tr>
+    <table align="center" class="table table-striped table-bordered table-hover">
+
+        <thead>
+            <tr>
+                <th></th>
+                <th class=" center ">星期一</th>
+                <th class=" center ">星期二</th>
+                <th class=" center ">星期三</th>
+                <th class=" center ">星期四</th>
+                <th class=" center ">星期五</th>
+                <th class=" center ">星期六</th>
+                <th class=" center ">星期日</th>
+
+
+
+            </tr>
+        </thead>
+
+
         <tr>
             <td align="center">1-2节</td>
             <td width="13%" align="center">
-                [DAY1_12]
+                [DAY1_1-2节]
             </td>
             <td width="13%" align="center">
-                [DAY2_12]
+                [DAY2_1-2节]
             </td>
             <td width="13%" align="center">
-                [DAY3_12]
+                [DAY3_1-2节]
             </td>
             <td width="13%" align="center">
-                [DAY4_12]
+                [DAY4_1-2节]
             </td>
             <td width="13%" align="center">
-                [DAY5_12]
+                [DAY5_1-2节]
             </td>
             <td width="13%" align="center">
-                [DAY6_12]
+                [DAY6_1-2节]
             </td>
             <td width="13%" align="center">
-                [DAY7_12]
+                [DAY7_1-2节]
             </td>
         <tr>
             <td align="center">3-4节</td>
             <td width="13%" align="center">
-                [DAY1_34]
+                [DAY1_3-4节]
             </td>
             <td width="13%" align="center">
-                [DAY2_34]
+                [DAY2_3-4节]
             </td>
             <td width="13%" align="center">
-                [DAY3_34]
+                [DAY3_3-4节]
             </td>
             <td width="13%" align="center">
-                [DAY4_34]
+                [DAY4_3-4节]
             </td>
             <td width="13%" align="center">
-                [DAY5_34]
+                [DAY5_3-4节]
             </td>
             <td width="13%" align="center">
-                [DAY6_34]
+                [DAY6_3-4节]
             </td>
             <td width="13%" align="center">
-                [DAY7_34]
+                [DAY7_3-4节]
             </td>
         <tr>
             <td align="center">5-6节</td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY1_5-6节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY2_5-6节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY3_5-6节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY4_5-6节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY5_5-6节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY6_5-6节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY7_5-6节]
             </td>
         <tr>
             <td align="center">7-8节</td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY1_7-8节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY2_7-8节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY3_7-8节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY4_7-8节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY5_7-8节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY6_7-8节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY7_7-8节]
             </td>
         <tr>
             <td align="center">9-10节</td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY1_9-10节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY2_9-10节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY3_9-10节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY4_9-10节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY5_9-10节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY6_9-10节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY7_9-10节]
             </td>
         <tr>
             <td align="center">11-12节</td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY1_11-12节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY2_11-12节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY3_11-12节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY4_11-12节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY5_11-12节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY6_11-12节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY7_11-12节]
             </td>
         <tr>
             <td align="center">13-14节</td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY1_13-14节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY2_13-14节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY3_13-14节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY4_13-14节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY5_13-14节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY6_13-14节]
             </td>
             <td width="13%" align="center">
-                &nbsp
+                [DAY7_13-14节]
             </td>
-            </td>
+
         </tr>
     </table>
 

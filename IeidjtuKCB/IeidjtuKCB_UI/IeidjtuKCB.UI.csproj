@@ -106,6 +106,13 @@
     <Content Include="ShowKCBForTeacher.html" />
     <Content Include="ShowKCBForRoom.html" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\avatars\" />
+    <Folder Include="assets\css\" />
+    <Folder Include="assets\font\" />
+    <Folder Include="assets\images\" />
+    <Folder Include="assets\js\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
