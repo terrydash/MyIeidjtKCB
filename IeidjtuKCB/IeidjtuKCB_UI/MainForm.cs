@@ -43,14 +43,7 @@ namespace IeidjtuKCB.UI
         }
         private void comboBox_Activeyear_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox_Activeyear.Items.Count>0)
-            {
-                TaskId = MainFormEnum.BindDataBaseToUI.BindVwCscheduleEntityToGridview;
-                    if (!backgroundWorker.IsBusy)
-                    { 
-                            backgroundWorker.RunWorkerAsync((int)ConvertHelper.ConvertStringToInt(comboBox_Activeyear.SelectedValue.ToString()));
-                    }
-            }
+           
         }
 
        
@@ -190,6 +183,34 @@ namespace IeidjtuKCB.UI
                     {
                        System.Diagnostics.Process.Start(filefullname);
                     }
+            }
+        }
+
+        private void buttonKCBtoGridView_Click(object sender, EventArgs e)
+        {
+            if (comboBox_Activeyear.Items.Count > 0)
+            {
+                TaskId = MainFormEnum.BindDataBaseToUI.BindVwCscheduleEntityToGridview;
+                if (!backgroundWorker.IsBusy)
+                {
+                    backgroundWorker.RunWorkerAsync((int)ConvertHelper.ConvertStringToInt(comboBox_Activeyear.SelectedValue.ToString()));
+                }
+            }
+        }
+
+        private void dataGridView_Teacher_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void buttonToTeacherKCB_Click(object sender, EventArgs e)
+        {
+            if (dataGridView_Teacher.Rows.Count > 0)
+            {
+                if (dataGridView_Teacher.SelectedRows.Count>0 & dataGridView_Teacher.SelectedCells[0]!=null)
+                { 
+                    MessageBox.Show(dataGridView_Teacher.SelectedCells[0].Value.ToString());
+                }
             }
         }
     }

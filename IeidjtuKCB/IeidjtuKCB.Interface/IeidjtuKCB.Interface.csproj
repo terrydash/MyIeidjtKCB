@@ -48,6 +48,12 @@
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IeidjtuKCB_Model\IeidjtuKCB.Model.csproj">
+      <Project>{82990c1e-be50-47bc-8855-ad22e6873f19}</Project>
+      <Name>IeidjtuKCB.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

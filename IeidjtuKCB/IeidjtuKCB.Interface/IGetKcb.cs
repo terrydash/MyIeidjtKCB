@@ -3,16 +3,28 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 using System.Data;
+
 namespace IeidjtuKCB.Interface
 {/// <summary>
 /// 获得课程表的接口
 /// </summary>
 /// <typeparam name="T"></typeparam>
-    public interface IGetKcb<T> where T :class
+    public interface IGetKcb<T>
     {
-       DataTable GetKCBFormVw_Cschedule_ForAtyID(int AtyID);
-       DataTable GetKCBFormVw_Cschedule_ForTCID(int TCID);
-       List<Object> GetKCBFormVw_Cschedule_ForAtyID_ToList(int AtyID);
+        /// <summary>
+        /// 获取制定学年的全部课表
+        /// </summary>
+        /// <param name="AtyID">学年ID</param>
+        /// <returns></returns>
+        DataTable GetKCBFormVw_Cschedule_ForAtyID(int AtyID);
+        /// <summary>
+        /// 获取指定学年 值
+        /// </summary>
+        /// <param name="AtyID"></param>
+        /// <param name="TCID"></param>
+        /// <returns></returns>
+        List<T> GetKCBFormVw_Cschedule_ForAtyIandTCID(int AtyID,int TCID);
+        List<T> GetKCBFormVw_Cschedule_ForAtyIandPSID(int AtyID,int PSID);
 
 
 

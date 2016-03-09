@@ -50,6 +50,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.buttonKCB2Excel = new System.Windows.Forms.Button();
+            this.buttonKCBtoGridView = new System.Windows.Forms.Button();
+            this.buttonToTeacherKCB = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -146,6 +148,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.buttonToTeacherKCB);
             this.tabPage1.Controls.Add(this.Btn_FindTeacher);
             this.tabPage1.Controls.Add(this.dataGridView_Teacher);
             this.tabPage1.Controls.Add(this.label3);
@@ -173,12 +176,20 @@
             // 
             // dataGridView_Teacher
             // 
+            this.dataGridView_Teacher.AllowUserToAddRows = false;
+            this.dataGridView_Teacher.AllowUserToDeleteRows = false;
+            this.dataGridView_Teacher.AllowUserToOrderColumns = true;
             this.dataGridView_Teacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Teacher.Location = new System.Drawing.Point(15, 64);
+            this.dataGridView_Teacher.MultiSelect = false;
             this.dataGridView_Teacher.Name = "dataGridView_Teacher";
             this.dataGridView_Teacher.RowTemplate.Height = 27;
+            this.dataGridView_Teacher.RowTemplate.ReadOnly = true;
+            this.dataGridView_Teacher.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Teacher.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Teacher.Size = new System.Drawing.Size(929, 150);
             this.dataGridView_Teacher.TabIndex = 6;
+            this.dataGridView_Teacher.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Teacher_CellContentDoubleClick);
             // 
             // label3
             // 
@@ -237,6 +248,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(16, 382);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
@@ -252,7 +266,7 @@
             // 
             // buttonKCB2Excel
             // 
-            this.buttonKCB2Excel.Location = new System.Drawing.Point(272, 30);
+            this.buttonKCB2Excel.Location = new System.Drawing.Point(431, 31);
             this.buttonKCB2Excel.Name = "buttonKCB2Excel";
             this.buttonKCB2Excel.Size = new System.Drawing.Size(113, 23);
             this.buttonKCB2Excel.TabIndex = 6;
@@ -260,11 +274,32 @@
             this.buttonKCB2Excel.UseVisualStyleBackColor = true;
             this.buttonKCB2Excel.Click += new System.EventHandler(this.buttonKCB2Excel_Click);
             // 
+            // buttonKCBtoGridView
+            // 
+            this.buttonKCBtoGridView.Location = new System.Drawing.Point(262, 31);
+            this.buttonKCBtoGridView.Name = "buttonKCBtoGridView";
+            this.buttonKCBtoGridView.Size = new System.Drawing.Size(163, 23);
+            this.buttonKCBtoGridView.TabIndex = 7;
+            this.buttonKCBtoGridView.Text = "学期课表toGridView";
+            this.buttonKCBtoGridView.UseVisualStyleBackColor = true;
+            this.buttonKCBtoGridView.Click += new System.EventHandler(this.buttonKCBtoGridView_Click);
+            // 
+            // buttonToTeacherKCB
+            // 
+            this.buttonToTeacherKCB.Location = new System.Drawing.Point(504, 16);
+            this.buttonToTeacherKCB.Name = "buttonToTeacherKCB";
+            this.buttonToTeacherKCB.Size = new System.Drawing.Size(75, 23);
+            this.buttonToTeacherKCB.TabIndex = 8;
+            this.buttonToTeacherKCB.Text = "教师课表";
+            this.buttonToTeacherKCB.UseVisualStyleBackColor = true;
+            this.buttonToTeacherKCB.Click += new System.EventHandler(this.buttonToTeacherKCB_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1355, 880);
+            this.Controls.Add(this.buttonKCBtoGridView);
             this.Controls.Add(this.buttonKCB2Excel);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
@@ -315,6 +350,8 @@
         private System.Windows.Forms.Button Btn_FindTeacher;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
         private System.Windows.Forms.Button buttonKCB2Excel;
+        private System.Windows.Forms.Button buttonKCBtoGridView;
+        private System.Windows.Forms.Button buttonToTeacherKCB;
     }
 }
 

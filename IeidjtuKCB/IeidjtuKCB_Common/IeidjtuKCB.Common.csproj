@@ -51,6 +51,7 @@
     <Compile Include="MakeExcelModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FileHelper.cs" />
+    <Compile Include="TimeHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IeidjtuKCB_Model\IeidjtuKCB.Model.csproj">
