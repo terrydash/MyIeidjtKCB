@@ -74,7 +74,7 @@ namespace IeidjtuKCB.Common
                             ws.Cells[rng].Style.Numberformat.Format = "@";
                             ws.Cells[rng].AutoFitColumns();
                             ws.View.FreezePanes(3,1);
-                            ep.Save(MEM.PassWord);
+                            ep.Save();
                             }
                         
                     }

@@ -64,7 +64,7 @@ namespace IeidjtuKCB.UI.Common
                                 RTMList.Add(new ReplaceTagModel { TagName = KCBForTeaecherHTMLTag.KCBDayAndSection(kCB.Week, kCB.Section), TagValue = kCB.CourseName + "→" + kCB.TCName + "&nbsp第" + kCB.StartWeek.ToString() + "-" + kCB.EndWeek.ToString() + "周&nbsp" +kCB.RoomName } )  ; 
                              }
                        }
-                }
+                }       
                 foreach (var item in RTMList)
             {
                     filecontent.Replace(item.TagName, item.TagValue);
