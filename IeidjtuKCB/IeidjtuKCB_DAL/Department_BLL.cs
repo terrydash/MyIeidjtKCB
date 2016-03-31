@@ -7,17 +7,17 @@ using IeidjtuKCB.Model;
 using IeidjtuKCB.Interface;
 namespace IeidjtuKCB.BLL
 {
-    public class Department_BLL  :IBaseBLL<Vw_DeptMent>
+    public class Department_BLL  :IBaseBLL<vw_DeptMent>
     {
         private Department_DAL D_DAL = new Department_DAL();
-        public List<Vw_DeptMent> GetAllEntityFromDAL()
+        public List<vw_DeptMent> GetAllEntityFromDAL()
         {
            
             return D_DAL.GetAllEntityFromDB();
         }
         
 
-        public List<Vw_DeptMent> GetEntityFromDAL(int ID)
+        public List<vw_DeptMent> GetEntityFromDAL(int ID)
         {
             return D_DAL.GetEntityFromDB(ID);
         }

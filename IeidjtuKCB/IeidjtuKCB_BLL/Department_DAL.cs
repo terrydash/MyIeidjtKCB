@@ -8,24 +8,24 @@ using IeidjtuKCB.Model;
 using IeidjtuKCB.Interface;
 namespace IeidjtuKCB.DAL
 {
-    public class Department_DAL:IBaseDAL<Vw_DeptMent>
+    public class Department_DAL:IBaseDAL<vw_DeptMent>
     {
         
 
-        public List<Vw_DeptMent> GetAllEntityFromDB()
+        public List<vw_DeptMent> GetAllEntityFromDB()
         {
             return GetEntityFromDB(0);
         }
 
-        public List<Vw_DeptMent> GetEntityFromDB(int id)
+        public List<vw_DeptMent> GetEntityFromDB(int id)
         {
-            return id <= 0 ? DataBase.Context.From<Vw_DeptMent>()
+            return id <= 0 ? DataBase.Context.From<vw_DeptMent>()
                             .Select(d => new { d.DeptID, d.DeptName, d.DeptCode, d.Tel })
-                            .OrderBy(Vw_DeptMent._.DeptID.Asc)
-                            .ToList() : DataBase.Context.From<Vw_DeptMent>()
+                            .OrderBy(vw_DeptMent._.DeptID.Asc)
+                            .ToList() : DataBase.Context.From<vw_DeptMent>()
                             .Select(d => new { d.DeptID, d.DeptName, d.DeptCode, d.Tel })
                             .Where(d => d.DeptID == id)
-                            .OrderBy(Vw_DeptMent._.DeptID.Asc)
+                            .OrderBy(vw_DeptMent._.DeptID.Asc)
                             .ToList();
         }
     }

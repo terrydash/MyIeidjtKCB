@@ -16,15 +16,15 @@ namespace IeidjtuKCB.Interface
         /// </summary>
         /// <param name="AtyID">学年ID</param>
         /// <returns></returns>
-        DataTable GetKCBFormVw_Cschedule_ForAtyID(int AtyID);
+        DataTable GetKCBFormvw_Cschedule_ForAtyID(int AtyID);
         /// <summary>
         /// 获取指定学年 值
         /// </summary>
         /// <param name="AtyID"></param>
         /// <param name="TCID"></param>
         /// <returns></returns>
-        List<T> GetKCBFormVw_Cschedule_ForAtyIandTCID(int AtyID,int TCID);
-        List<T> GetKCBFormVw_Cschedule_ForAtyIandPSID(int AtyID,int PSID);
+        List<T> GetKCBFormvw_Cschedule_ForAtyIandTCID(int AtyID,int TCID);
+        List<T> GetKCBFormvw_Cschedule_ForAtyIandPSID(int AtyID,int PSID);
 
 
 

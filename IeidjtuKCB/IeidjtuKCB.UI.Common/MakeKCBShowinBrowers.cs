@@ -40,7 +40,7 @@ namespace IeidjtuKCB.UI.Common
             Teacher_BLL T_BLL = new Teacher_BLL();
             var Teacher = T_BLL.GetAllEntityFromDAL().Find(d=>d.PSID==PSID);
             Department_BLL D_BLL = new Department_BLL();
-            var KCBList = C_BLL.GetKCBFormVw_Cschedule_ForAtyIandPSID(AtyID, PSID);
+            var KCBList = C_BLL.GetKCBFormvw_Cschedule_ForAtyIandPSID(AtyID, PSID);
             RTMList.Add(new ReplaceTagModel { TagName =KCBForTeaecherHTMLTag.ActYear(),TagValue =  actyearname});
             RTMList.Add(new ReplaceTagModel { TagName = KCBForTeaecherHTMLTag.TeacherName(), TagValue = Teacher.PsName }    );
             RTMList.Add(new ReplaceTagModel { TagName = KCBForTeaecherHTMLTag.TeacherCoder(), TagValue = Teacher.StandCode});

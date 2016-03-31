@@ -9,14 +9,14 @@ using System;
 
 namespace IeidjtuKCB.BLL
 {
-    public class Cschedule_BLL :IBaseBLL<Vw_Cschedule> ,IGetKcb<KCB>
+    public class Cschedule_BLL :IBaseBLL<vw_Cschedule> ,IGetKcb<KCB>
     {
-        public List<Vw_Cschedule> GetAllEntityFromDAL()
+        public List<vw_Cschedule> GetAllEntityFromDAL()
         {
             return GetEntityFromDAL(0);
         }
 
-        public List<Vw_Cschedule> GetEntityFromDAL(int Atyid)
+        public List<vw_Cschedule> GetEntityFromDAL(int Atyid)
         {
             
             Cschedule_DAL Cs_DAL = new Cschedule_DAL();
@@ -24,9 +24,11 @@ namespace IeidjtuKCB.BLL
 
         }
 
-        public List<KCB> GetKCBFormVw_Cschedule_ForAtyIandPSID(int AtyID, int PSID)
+       
+
+        public List<KCB> GetKCBFormvw_Cschedule_ForAtyIandPSID(int AtyID, int PSID)
         {
-            var itemlist = GetEntityFromDAL(AtyID).Where(d => d.TCID != null & d.PSID == PSID).Select(d => new { d.CCode, d.CCname, d.TCName, d.Havenum, d.PsName, d.StartW, d.EndW, d.DSZ, d.DayOfWeek, d.SectionTH, d.BuildName, d.CRname, d.PsNumber, d.TCID, d.PSID, d.AtyID, d.CCID, d.CRID, d.CSID }).OrderBy(d => d.StartW).ThenBy(d => d.DayOfWeek).ThenBy(d => d.SectionTH).ToList();
+            var itemlist = GetEntityFromDAL(AtyID).Where(d => d.TCID != null & d.PSID == PSID).Select(d => new { d.CCode, d.CCname, d.TCName, d.havenum, d.PsName, d.StartW, d.EndW, d.DSZ, d.DayOfWeek, d.SectionTH, d.BuildName, d.CRname, d.PsNumber, d.TCID, d.PSID, d.AtyID, d.CCID, d.CRID, d.CSID }).OrderBy(d => d.StartW).ThenBy(d => d.DayOfWeek).ThenBy(d => d.SectionTH).ToList();
 
             if (itemlist.Count > 0)
             {
@@ -55,9 +57,11 @@ namespace IeidjtuKCB.BLL
             return null;
         }
 
-        public List<KCB> GetKCBFormVw_Cschedule_ForAtyIandTCID(int AtyID, int TCID)
+      
+
+        public List<KCB> GetKCBFormvw_Cschedule_ForAtyIandTCID(int AtyID, int TCID)
         {
-             var itemlist= GetEntityFromDAL(AtyID).Where(d => d.TCID != null & d.TCID == TCID).Select(d => new { d.CCode, d.CCname, d.TCName, d.Havenum, d.PsName, d.StartW, d.EndW, d.DSZ, d.DayOfWeek, d.SectionTH, d.BuildName, d.CRname, d.PsNumber, d.TCID, d.PSID, d.AtyID, d.CCID, d.CRID,d.CSID }).OrderBy(d=>d.StartW).ThenBy(d=>d.DayOfWeek).ThenBy(d=>d.SectionTH).ToList();
+             var itemlist= GetEntityFromDAL(AtyID).Where(d => d.TCID != null & d.TCID == TCID).Select(d => new { d.CCode, d.CCname, d.TCName, d.havenum, d.PsName, d.StartW, d.EndW, d.DSZ, d.DayOfWeek, d.SectionTH, d.BuildName, d.CRname, d.PsNumber, d.TCID, d.PSID, d.AtyID, d.CCID, d.CRID,d.CSID }).OrderBy(d=>d.StartW).ThenBy(d=>d.DayOfWeek).ThenBy(d=>d.SectionTH).ToList();
             
             if (itemlist.Count>0)
             {
@@ -85,10 +89,12 @@ namespace IeidjtuKCB.BLL
 
         }
 
-        public DataTable GetKCBFormVw_Cschedule_ForAtyID(int AtyID)
+       
+
+        public DataTable GetKCBFormvw_Cschedule_ForAtyID(int AtyID)
         {
             
-            return ListHelper.ListToDataTable(GetEntityFromDAL(AtyID).Where(d=>d.TCID!=null).Select(d => new { d.CCode, d.CCname,d.TCName,d.Havenum,d.PsName,d.StartW,d.EndW,d.DSZ,d.DayOfWeek,d.SectionTH,d.BuildName,d.CRname,d.PsNumber}).ToList());
+            return ListHelper.ListToDataTable(GetEntityFromDAL(AtyID).Where(d=>d.TCID!=null).Select(d => new { d.CCode, d.CCname,d.TCName,d.havenum, d.PsName,d.StartW,d.EndW,d.DSZ,d.DayOfWeek,d.SectionTH,d.BuildName,d.CRname,d.PsNumber}).ToList());
         }
         public void ShowKCBForTeacher(int AtyID,int PSID)
         {

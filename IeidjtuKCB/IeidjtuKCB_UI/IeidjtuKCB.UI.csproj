@@ -57,7 +57,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -132,8 +132,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ShowKCBForTeacher.html" />
-    <Content Include="ShowKCBForRoom.html" />
+    <Content Include="ShowKCBForTeacher.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ShowKCBForRoom.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\avatars\" />

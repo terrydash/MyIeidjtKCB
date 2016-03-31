@@ -10,17 +10,17 @@ using System.Data;
 
 namespace IeidjtuKCB.DAL
 {
-    public class Cschedule_DAL:IBaseDAL<Vw_Cschedule>
+    public class Cschedule_DAL:IBaseDAL<vw_Cschedule>
 
     {
-        public List<Vw_Cschedule> GetEntityFromDB(int Atyid) 
+        public List<vw_Cschedule> GetEntityFromDB(int Atyid) 
         {
 
-            return Atyid <= 0 ? DataBase.Context.From<Vw_Cschedule>()
+            return Atyid <= 0 ? DataBase.Context.From<vw_Cschedule>()
                            
                             
                             .ToList() : 
-                            DataBase.Context.From<Vw_Cschedule>()
+                            DataBase.Context.From<vw_Cschedule>()
                             
                             .Where(d => d.AtyID == Atyid)
                             
@@ -29,7 +29,7 @@ namespace IeidjtuKCB.DAL
 
       
 
-        public List<Vw_Cschedule> GetAllEntityFromDB()
+        public List<vw_Cschedule> GetAllEntityFromDB()
         {
             return GetEntityFromDB(0);
         }

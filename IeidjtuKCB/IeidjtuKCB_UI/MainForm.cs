@@ -143,7 +143,7 @@ namespace IeidjtuKCB.UI
                          }
                 string title="大连科技学院" + A_BLL.GetAllEntityFromDAL().Find(d => d.ATID == atyid).ATName + "课程表";
                 string filefullname = System.Environment.CurrentDirectory  +@"\"+title+".xlsx";
-                
+                MessageBox.Show(filefullname);
                 if (System.IO.File.Exists(filefullname))
                 {
                     try
@@ -169,7 +169,7 @@ namespace IeidjtuKCB.UI
                     MEM.Filename = filefullname;
                     MEM.TitleName = title;
                     MEM.PassWord = "";
-                    MEM.dataTable = C_BLL.GetKCBFormVw_Cschedule_ForAtyID(atyid);
+                    MEM.dataTable = C_BLL.GetKCBFormvw_Cschedule_ForAtyID(atyid);
                     MEM.HeaderText = new List<string> { "课程代码", "课程名称", "教学班级名称", "人数", "任课教师", "起始周", "结束周", "单双周", "星期", "节数", "教学楼", "教室", "教室容纳人数" };
                     ExcelHelper.SaveToExcel(MEM);
                 }
