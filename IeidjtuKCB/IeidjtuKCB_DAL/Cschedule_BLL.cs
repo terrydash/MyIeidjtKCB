@@ -94,7 +94,7 @@ namespace IeidjtuKCB.BLL
         public DataTable GetKCBFormvw_Cschedule_ForAtyID(int AtyID)
         {
             
-            return ListHelper.ListToDataTable(GetEntityFromDAL(AtyID).Where(d=>d.TCID!=null).Select(d => new { d.CCode, d.CCname,d.TCName,d.havenum, d.PsName,d.StartW,d.EndW,d.DSZ,d.DayOfWeek,d.SectionTH,d.BuildName,d.CRname,d.PsNumber}).ToList());
+            return ListHelper.ListToDataTable(GetEntityFromDAL(AtyID).Where(d=>d.TCID!=null).Select(d => new { d.CCode, d.CCname,d.TCName,d.havenum, d.PsName,d.StartW,d.EndW,d.DSZ,d.DayOfWeek,d.SectionTH,d.BuildName,d.CRname,d.PsNumber,d.Source,d.ExminSort,d.Period,d.Csort}).ToList());
         }
         public void ShowKCBForTeacher(int AtyID,int PSID)
         {

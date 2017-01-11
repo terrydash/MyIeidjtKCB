@@ -43,6 +43,7 @@
     <Compile Include="Cschedule_BLL.cs" />
     <Compile Include="Department_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student_BLL.cs" />
     <Compile Include="Teacher_BLL.cs" />
     <Compile Include="Vw_Teacher_BLL.cs" />
   </ItemGroup>

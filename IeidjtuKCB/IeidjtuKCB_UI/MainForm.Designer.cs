@@ -38,6 +38,13 @@
             this.班级课程查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.课程课表查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TextBox_Grade = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonToTeacherKCB = new System.Windows.Forms.Button();
             this.Btn_FindTeacher = new System.Windows.Forms.Button();
@@ -53,8 +60,15 @@
             this.buttonKCB2Excel = new System.Windows.Forms.Button();
             this.buttonKCBtoGridView = new System.Windows.Forms.Button();
             this.backgroundWorkerForShowKCB = new System.ComponentModel.BackgroundWorker();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Teacher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -90,7 +104,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1355, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1345, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -103,41 +117,42 @@
             this.班级课程查询ToolStripMenuItem,
             this.课程课表查询ToolStripMenuItem});
             this.课表查询ToolStripMenuItem.Name = "课表查询ToolStripMenuItem";
-            this.课表查询ToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.课表查询ToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
             this.课表查询ToolStripMenuItem.Text = "课表查询(&F)";
             // 
             // 学生课表查询ToolStripMenuItem
             // 
             this.学生课表查询ToolStripMenuItem.Name = "学生课表查询ToolStripMenuItem";
-            this.学生课表查询ToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.学生课表查询ToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.学生课表查询ToolStripMenuItem.Text = "学生课表查询(&S)";
             // 
             // 教师课表查询ToolStripMenuItem
             // 
             this.教师课表查询ToolStripMenuItem.Name = "教师课表查询ToolStripMenuItem";
-            this.教师课表查询ToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.教师课表查询ToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.教师课表查询ToolStripMenuItem.Text = "教师课表查询";
             // 
             // 教室课表查询ToolStripMenuItem
             // 
             this.教室课表查询ToolStripMenuItem.Name = "教室课表查询ToolStripMenuItem";
-            this.教室课表查询ToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.教室课表查询ToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.教室课表查询ToolStripMenuItem.Text = "教室课表查询";
             // 
             // 班级课程查询ToolStripMenuItem
             // 
             this.班级课程查询ToolStripMenuItem.Name = "班级课程查询ToolStripMenuItem";
-            this.班级课程查询ToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.班级课程查询ToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.班级课程查询ToolStripMenuItem.Text = "班级课程查询";
             // 
             // 课程课表查询ToolStripMenuItem
             // 
             this.课程课表查询ToolStripMenuItem.Name = "课程课表查询ToolStripMenuItem";
-            this.课程课表查询ToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.课程课表查询ToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.课程课表查询ToolStripMenuItem.Text = "课程课表查询";
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(0, 74);
@@ -146,6 +161,78 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1117, 282);
             this.tabControl1.TabIndex = 4;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.progressBar1);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.TextBox_Grade);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1109, 253);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "毕业生";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(277, 69);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 15);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "label6";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(42, 119);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(935, 23);
+            this.progressBar1.Step = 1;
+            this.progressBar1.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(462, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 15);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "label5";
+            // 
+            // TextBox_Grade
+            // 
+            this.TextBox_Grade.Location = new System.Drawing.Point(170, 25);
+            this.TextBox_Grade.MaxLength = 4;
+            this.TextBox_Grade.Name = "TextBox_Grade";
+            this.TextBox_Grade.Size = new System.Drawing.Size(100, 25);
+            this.TextBox_Grade.TabIndex = 10;
+            this.TextBox_Grade.Text = "2013";
+            this.TextBox_Grade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Grade_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(39, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(135, 15);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "毕业生所在年级4位";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(276, 25);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "导出毕业生";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // tabPage1
             // 
@@ -299,11 +386,67 @@
             // 
             this.backgroundWorkerForShowKCB.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerForShowKCB_DoWork);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(343, 453);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(400, 272);
+            this.richTextBox1.TabIndex = 8;
+            this.richTextBox1.Text = "";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(773, 453);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ReadOnly = true;
+            this.richTextBox2.Size = new System.Drawing.Size(428, 272);
+            this.richTextBox2.TabIndex = 9;
+            this.richTextBox2.Text = "";
+            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 15);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "label7";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(632, 69);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 15);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "label8";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(632, 35);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(55, 15);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "label9";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1355, 880);
+            this.ClientSize = new System.Drawing.Size(1345, 880);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.buttonKCBtoGridView);
             this.Controls.Add(this.buttonKCB2Excel);
             this.Controls.Add(this.dataGridView1);
@@ -323,6 +466,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Teacher)).EndInit();
@@ -358,6 +503,19 @@
         private System.Windows.Forms.Button buttonKCBtoGridView;
         private System.Windows.Forms.Button buttonToTeacherKCB;
         private System.ComponentModel.BackgroundWorker backgroundWorkerForShowKCB;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox TextBox_Grade;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
     }
 }
 

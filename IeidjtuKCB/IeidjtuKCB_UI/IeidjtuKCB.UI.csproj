@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Administrator\Desktop\ieidjtu\</PublishUrl>
+    <PublishUrl>C:\Users\My\Desktop\111\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -60,6 +60,14 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dos.ORM, Version=1.10.7.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dos.ORM.1.10.7.1\lib\net40\Dos.ORM.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -103,6 +111,7 @@
       <DependentUpon>ShowKCB.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="IeidjtuKCB.UI_TemporaryKey.pfx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -114,9 +123,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ieidjtu.DBSession\IeidjtuKCB.DBSession.csproj">
+      <Project>{fb3c2560-083c-4252-b3e5-7c663cf96859}</Project>
+      <Name>IeidjtuKCB.DBSession</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IeidjtuKCB.UI.Common\IeidjtuKCB.UI.Common.csproj">
       <Project>{5b8623f0-5794-413f-936f-9f951a033855}</Project>
       <Name>IeidjtuKCB.UI.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IeidjtuKCB_BLL\IeidjtuKCB.DAL.csproj">
+      <Project>{e2d48a02-32cd-4f9e-93db-862bb41d2ca6}</Project>
+      <Name>IeidjtuKCB.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\IeidjtuKCB_Common\IeidjtuKCB.Common.csproj">
       <Project>{bca36faf-0a3b-4c89-ae68-4b94fddd3393}</Project>
@@ -162,6 +179,28 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Dos.ORM">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Ieidjtu.DBSession">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
