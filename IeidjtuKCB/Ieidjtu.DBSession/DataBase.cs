@@ -25,7 +25,7 @@ namespace IeidjtuKCB.DBSession
         /// <param name="sql">要执行的SQL语句</param>
         /// <param name="parameters">参数</param>
         /// <returns>返回影响的数目</returns>
-        public int ExecutNoneQuery(string sql, IList<DbParameter> parameters)
+        public static int ExecutNoneQuery(string sql, IList<DbParameter> parameters)
         {
             DbCommand db = Context.Db.GetSqlStringCommand(sql);
             if (!(parameters == null || parameters.Count == 0))

@@ -60,6 +60,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox_Department_For_Teacher = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.TxtBox_Tname = new System.Windows.Forms.TextBox();
+            this.Btn_MakeCourse = new System.Windows.Forms.Button();
+            this.TxtBox_CourseName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
@@ -69,17 +73,15 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.TxtBox_CourseName = new System.Windows.Forms.TextBox();
-            this.Btn_MakeCourse = new System.Windows.Forms.Button();
-            this.TxtBox_Tname = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.RTC_INFO = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Teacher)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_Bind
@@ -402,6 +404,45 @@
             this.tabPage2.Text = "教室课表查询";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.RTC_INFO);
+            this.tabPage4.Controls.Add(this.label10);
+            this.tabPage4.Controls.Add(this.TxtBox_Tname);
+            this.tabPage4.Controls.Add(this.Btn_MakeCourse);
+            this.tabPage4.Controls.Add(this.TxtBox_CourseName);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1109, 253);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "批量聘课";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // TxtBox_Tname
+            // 
+            this.TxtBox_Tname.Location = new System.Drawing.Point(460, 29);
+            this.TxtBox_Tname.Name = "TxtBox_Tname";
+            this.TxtBox_Tname.Size = new System.Drawing.Size(100, 25);
+            this.TxtBox_Tname.TabIndex = 2;
+            // 
+            // Btn_MakeCourse
+            // 
+            this.Btn_MakeCourse.Location = new System.Drawing.Point(589, 28);
+            this.Btn_MakeCourse.Name = "Btn_MakeCourse";
+            this.Btn_MakeCourse.Size = new System.Drawing.Size(75, 23);
+            this.Btn_MakeCourse.TabIndex = 1;
+            this.Btn_MakeCourse.Text = "button3";
+            this.Btn_MakeCourse.UseVisualStyleBackColor = true;
+            this.Btn_MakeCourse.Click += new System.EventHandler(this.Btn_MakeCourse_Click);
+            // 
+            // TxtBox_CourseName
+            // 
+            this.TxtBox_CourseName.Location = new System.Drawing.Point(213, 29);
+            this.TxtBox_CourseName.Name = "TxtBox_CourseName";
+            this.TxtBox_CourseName.Size = new System.Drawing.Size(179, 25);
+            this.TxtBox_CourseName.TabIndex = 0;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -480,42 +521,22 @@
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
-            // tabPage4
+            // label10
             // 
-            this.tabPage4.Controls.Add(this.TxtBox_Tname);
-            this.tabPage4.Controls.Add(this.Btn_MakeCourse);
-            this.tabPage4.Controls.Add(this.TxtBox_CourseName);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1109, 253);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(111, 39);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 15);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "教学班级名称";
             // 
-            // TxtBox_CourseName
+            // RTC_INFO
             // 
-            this.TxtBox_CourseName.Location = new System.Drawing.Point(44, 29);
-            this.TxtBox_CourseName.Name = "TxtBox_CourseName";
-            this.TxtBox_CourseName.Size = new System.Drawing.Size(179, 25);
-            this.TxtBox_CourseName.TabIndex = 0;
-            // 
-            // Btn_MakeCourse
-            // 
-            this.Btn_MakeCourse.Location = new System.Drawing.Point(388, 28);
-            this.Btn_MakeCourse.Name = "Btn_MakeCourse";
-            this.Btn_MakeCourse.Size = new System.Drawing.Size(75, 23);
-            this.Btn_MakeCourse.TabIndex = 1;
-            this.Btn_MakeCourse.Text = "button3";
-            this.Btn_MakeCourse.UseVisualStyleBackColor = true;
-            this.Btn_MakeCourse.Click += new System.EventHandler(this.Btn_MakeCourse_Click);
-            // 
-            // TxtBox_Tname
-            // 
-            this.TxtBox_Tname.Location = new System.Drawing.Point(258, 29);
-            this.TxtBox_Tname.Name = "TxtBox_Tname";
-            this.TxtBox_Tname.Size = new System.Drawing.Size(100, 25);
-            this.TxtBox_Tname.TabIndex = 2;
+            this.RTC_INFO.Location = new System.Drawing.Point(107, 108);
+            this.RTC_INFO.Name = "RTC_INFO";
+            this.RTC_INFO.Size = new System.Drawing.Size(937, 107);
+            this.RTC_INFO.TabIndex = 4;
+            this.RTC_INFO.Text = "";
             // 
             // MainForm
             // 
@@ -548,9 +569,9 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Teacher)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -602,6 +623,8 @@
         private System.Windows.Forms.Button Btn_MakeCourse;
         private System.Windows.Forms.TextBox TxtBox_CourseName;
         private System.Windows.Forms.TextBox TxtBox_Tname;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RichTextBox RTC_INFO;
     }
 }
 

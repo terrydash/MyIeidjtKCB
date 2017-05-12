@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.IO;
 using IeidjtuKCB.Common;
 using IeidjtuKCB.BLL;
 using System.Windows.Forms;
@@ -750,17 +753,98 @@ namespace IeidjtuKCB.UI
 
         private void Btn_MakeCourse_Click(object sender, EventArgs e)
         {
-            var ccname = TxtBox_CourseName.Text.Trim();
+            var ccname = TxtBox_CourseName.Text.Length == 0
+                ? "清考" + DateTime.Now.ToShortTimeString()
+                : TxtBox_CourseName.Text.Trim();
             var tname = TxtBox_Tname.Text.Trim();
             var lists = new List<EXCELModel>();
-            Task t=new Task(() =>
+            var filename = AppDomain.CurrentDomain.BaseDirectory + "tept.xlsx";
+            if (File.Exists(filename))
             {
-                 lists = ExcelHelper.LoadFromExcel<EXCELModel>("temp.xlsx");
+                lists = ExcelHelper.LoadFromExcel<EXCELModel>(filename);
                 MessageBox.Show(lists.Count.ToString());
+            }
+            else
+            {
+                MessageBox.Show(filename+" 未找到!");
+            }
+            int actyear= DataBase.Context.From<Activeyear>().Where(n => n.State=="当前").First().ATID;
 
-            });
-            t.Start();
-           
+            StringBuilder sb = new StringBuilder();
+            foreach (var list in lists)
+            {
+                var error = false;
+                
+                sb.Append("课程:");
+                sb.Append(list.cname);
+                sb.Append("_");
+                sb.Append("教师:");
+                sb.Append(list.tname);
+                var course = DataBase.Context.From<Curricula>().Where(n => n.CCname == list.cname).First();
+                if (course == null)
+                {
+                    error = true;
+                    sb.Append(" 课程未找到!");
+                }
+                var teacher=DataBase.Context.From<RSDA>().Where(n => n.PsName == list.tname).First();
+                if (teacher == null)
+                {
+                    error = true;
+                    sb.Append(" 教师未找到!");
+                }
+                if (error == false)
+                {
+                    var teachclass =
+                        DataBase.Context.From<TeachClass>()
+                            .Where(n => n.CCID == course.CCID && n.TCHID == teacher.PSID && n.ActYear == actyear)
+                            .First();
+                    if (teachclass == null)
+                    {
+                        DbParameter dbParameter=new SqlParameter();
+                        ;
+
+                        var proc=DataBase.Context.FromProc("Usp_Teach_Class_Edit");
+                        proc.AddInParameter("@TCID", DbType.Int32, 0);
+                        proc.AddInParameter("@EPID", DbType.Int32, 0);
+                        proc.AddInParameter("@atyid", DbType.Int32, actyear);
+                        proc.AddInParameter("@CCID", DbType.Int32, course.CCID);
+                        proc.AddInParameter("@TCName",DbType.String , ccname);
+                        proc.AddInParameter("@Deptcode", DbType.String, "20");
+                        proc.AddInParameter("@MaxStuNum", DbType.Int32, 120);
+                        proc.AddInParameter("@T1", DbType.String, teacher.StandCode);
+                        proc.AddInParameter("@T2", DbType.String, string.Empty);
+                        proc.AddInParameter("@T3", DbType.String, string.Empty);
+                        proc.AddInParameter("@CLRSort", DbType.String, "普通");
+                        proc.AddInParameter("@RGID", DbType.Int32, 1);
+                        proc.AddInParameter("@CLassname", DbType.String, string.Empty);
+                        proc.AddInParameter("@CTID", DbType.Int32, 0);
+                        proc.AddInParameter("@ExminSort", DbType.String, "考试");
+                        proc.AddInParameter("@Sort", DbType.String, "本科");
+                        proc.AddInParameter("@Lev", DbType.String,string.Empty);
+                        proc.AddInParameter("@Grade", DbType.String, string.Empty);
+                        proc.AddInParameter("@SPID", DbType.Int32, 0);
+                        proc.AddInParameter("@Minor", DbType.String, "清考");
+                        proc.AddInParameter("@ctype", DbType.String, string.Empty);
+                        proc.AddInParameter("@Oper", DbType.String, "徐国旭");
+                        proc.AddInParameter("@LimitGrade", DbType.String, string.Empty);
+                        proc.AddInParameter("@LimitSP", DbType.String, string.Empty);
+                        proc.AddInParameter("@LSPmethod ", DbType.String, "inc");
+                        proc.ExecuteNonQuery();
+                        sb.Append("添加完成！");
+                    }
+                    else
+                    {
+                        sb.Append("已经聘过！");
+                    }
+                    
+                }
+                sb.AppendLine();
+                RTC_INFO.Text = sb.ToString();
+            }
+            
+
+
+
         }
     }
 }

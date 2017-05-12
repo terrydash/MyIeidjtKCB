@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using OfficeOpenXml;
 using OfficeOpenXml.Table;
 using System.Reflection;
@@ -101,7 +102,7 @@ namespace IeidjtuKCB.Common
 
             using (ExcelPackage package = new ExcelPackage(existingFile))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets[1];
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.First();
 
                 int colStart = worksheet.Dimension.Start.Column;  //工作区开始列
                 int colEnd = worksheet.Dimension.End.Column;       //工作区结束列
