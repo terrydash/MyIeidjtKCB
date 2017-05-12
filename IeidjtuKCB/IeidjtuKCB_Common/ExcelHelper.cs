@@ -93,7 +93,7 @@ namespace IeidjtuKCB.Common
         /// <typeparam name="T">每行数据的类型</typeparam>
         /// <param name="FileName">Excel文件名</param>
         /// <returns>泛型列表</returns>
-        private static IEnumerable<T> LoadFromExcel<T>(string FileName) where T : new()
+        public static List<T> LoadFromExcel<T>(string FileName) where T : new()
         {
             FileInfo existingFile = new FileInfo(FileName);
             List<T> resultList = new List<T>();

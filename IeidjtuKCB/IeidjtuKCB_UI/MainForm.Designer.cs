@@ -39,6 +39,7 @@
             this.课程课表查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -68,13 +69,17 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.button2 = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.TxtBox_CourseName = new System.Windows.Forms.TextBox();
+            this.Btn_MakeCourse = new System.Windows.Forms.Button();
+            this.TxtBox_Tname = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Teacher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // Btn_Bind
@@ -158,6 +163,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(0, 74);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
@@ -185,6 +191,16 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "毕业生";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(414, 25);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(103, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "停止并导出";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // checkBox1
             // 
@@ -464,15 +480,42 @@
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
-            // button2
+            // tabPage4
             // 
-            this.button2.Location = new System.Drawing.Point(414, 25);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "停止并导出";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.tabPage4.Controls.Add(this.TxtBox_Tname);
+            this.tabPage4.Controls.Add(this.Btn_MakeCourse);
+            this.tabPage4.Controls.Add(this.TxtBox_CourseName);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1109, 253);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // TxtBox_CourseName
+            // 
+            this.TxtBox_CourseName.Location = new System.Drawing.Point(44, 29);
+            this.TxtBox_CourseName.Name = "TxtBox_CourseName";
+            this.TxtBox_CourseName.Size = new System.Drawing.Size(179, 25);
+            this.TxtBox_CourseName.TabIndex = 0;
+            // 
+            // Btn_MakeCourse
+            // 
+            this.Btn_MakeCourse.Location = new System.Drawing.Point(388, 28);
+            this.Btn_MakeCourse.Name = "Btn_MakeCourse";
+            this.Btn_MakeCourse.Size = new System.Drawing.Size(75, 23);
+            this.Btn_MakeCourse.TabIndex = 1;
+            this.Btn_MakeCourse.Text = "button3";
+            this.Btn_MakeCourse.UseVisualStyleBackColor = true;
+            this.Btn_MakeCourse.Click += new System.EventHandler(this.Btn_MakeCourse_Click);
+            // 
+            // TxtBox_Tname
+            // 
+            this.TxtBox_Tname.Location = new System.Drawing.Point(258, 29);
+            this.TxtBox_Tname.Name = "TxtBox_Tname";
+            this.TxtBox_Tname.Size = new System.Drawing.Size(100, 25);
+            this.TxtBox_Tname.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -506,6 +549,8 @@
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Teacher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -553,6 +598,10 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button Btn_MakeCourse;
+        private System.Windows.Forms.TextBox TxtBox_CourseName;
+        private System.Windows.Forms.TextBox TxtBox_Tname;
     }
 }
 

@@ -13,11 +13,11 @@ namespace IeidjtuKCB.DBSession
     /// </summary>
     public  class DataBase
     {
-        public static DbSession Context1 = new DbSession(DatabaseType.SqlServer9, @"Data Source=.;Database=Education;User Id=sa;Password=52Xuguoxu;");//笔记本
-        public static DbSession Context = new DbSession(DatabaseType.SqlServer9, @"Data Source=DataServer;Database=Education;User Id=sa;Password=52Xuguoxu;");//服务器
-        public static DbSession Context3 = new DbSession(DatabaseType.SqlServer9, @"Data Source=WIN-79FIINOQABU;Database=Education;User Id=sa;Password=52Xuguoxu;");//家
-        public static  DbSession Context2 = new DbSession(DatabaseType.SqlServer9, @"Data Source=.\XUGUOXU54;Database=Education;User Id=sa;Password=52Xuguoxu;");//单位
-        public static DbSession Context4 = new DbSession(DatabaseType.SqlServer9, @"Data Source=192.168.18.103;Database=Education;User Id=sa;Password=52Xuguoxu;");//单位
+        public static DbSession Context = new DbSession(DatabaseType.SqlServer9, @"Data Source=125.222.144.16,1444;Database=Education;User Id=sa;Password=52Xuguoxu;");//笔记本
+        public static DbSession Context1 = new DbSession(DatabaseType.SqlServer9, @"Data Source=DataServer;Database=Education;User Id=sa;Password=52Xuguoxu;");//服务器
+        
+        
+        
         
         /// <summary>
         /// 执行带参数的SQL语句

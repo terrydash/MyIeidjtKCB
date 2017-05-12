@@ -60,8 +60,8 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dos.ORM, Version=1.10.7.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dos.ORM.1.10.7.1\lib\net40\Dos.ORM.dll</HintPath>
+    <Reference Include="Dos.ORM, Version=1.10.7.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dos.ORM.1.10.7.3\lib\net40\Dos.ORM.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EXCELModel.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -14,6 +14,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Dos.ORM;
 
 namespace IeidjtuKCB.UI
@@ -745,6 +746,21 @@ namespace IeidjtuKCB.UI
                 backgroundWorker1.CancelAsync();
             }
             
+        }
+
+        private void Btn_MakeCourse_Click(object sender, EventArgs e)
+        {
+            var ccname = TxtBox_CourseName.Text.Trim();
+            var tname = TxtBox_Tname.Text.Trim();
+            var lists = new List<EXCELModel>();
+            Task t=new Task(() =>
+            {
+                 lists = ExcelHelper.LoadFromExcel<EXCELModel>("temp.xlsx");
+                MessageBox.Show(lists.Count.ToString());
+
+            });
+            t.Start();
+           
         }
     }
 }
