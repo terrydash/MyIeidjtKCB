@@ -24,7 +24,7 @@ namespace IeidjtuKCB.UI
     public partial class MainForm : System.Windows.Forms.Form
     {
         #region 变量声明
-
+        
         /// <summary>
         /// 为便于异步读取执行操作设置的要操作的ID
         /// </summary>
@@ -47,7 +47,7 @@ namespace IeidjtuKCB.UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -338,9 +338,15 @@ namespace IeidjtuKCB.UI
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            
             if (!backgroundWorker1.IsBusy)
             {
+                
                 backgroundWorker1.RunWorkerAsync();
+            }
+            else
+            {
+                MessageBox.Show("运行中，请不要重复点击！");
             }
         }
 
@@ -447,20 +453,33 @@ namespace IeidjtuKCB.UI
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            string paichuxuehao = textBox1.Text.Trim(' ');
             int gradeid =
                 DataBase.Context.From<Grade>().Where(n => n.GRName.Contains(TextBox_Grade.Text.Trim())).ToFirst().GRDID;
-            List<Student> students =
-                DataBase.Context.From<Student>()
-                    .Where(
-                        n =>
-                            n.GradeID == gradeid && n.State.Contains("正常") && n.ByState.Contains("在学") &&
-                            !n.StdCode.StartsWith("11") && !n.StdCode.StartsWith("12")).OrderBy(n=>n.StdCode)
-                    .Page(100, 1).ToList();
+            MessageBox.Show(gradeid.ToString());
+            var a = DataBase.Context.From<Student>()
+                .Where(
+                    n =>
+                            n.GradeID == gradeid && n.State.Contains("正常") && n.ByState.Contains("在学"));
+            MessageBox.Show(paichuxuehao.Replace("，", ",").Split(',').ToString());
+            List<Student> students = a.OrderBy(n => n.StdCode)
+              .ToList();
+            foreach (var VARIABLE in paichuxuehao.Replace("，", ",").Split(','))
+            {
+
+                students=students.Where(n => !n.StdCode.StartsWith(VARIABLE)).ToList();
+            }
+           
             howmanystudent = students.Count;
            
             MessageBox.Show("共有学生" + howmanystudent + "个");
             foreach (var Student in students)
             {
+                if (backgroundWorker1.CancellationPending)
+                {
+                    SaveExcel();
+                    break;
+                }
                 label8.Text = "学号:" + Student.StdCode + "姓名:" + Student.StdName;
                 var stureportsjingchengjidan =
                     DataBase.Context.From<vw_StuReport>()
@@ -634,8 +653,30 @@ namespace IeidjtuKCB.UI
                 progressBar1.Value = (int)(((float)currentstunum / (float)howmanystudent) * (float)100);
                 backgroundWorker1.ReportProgress(currentstunum);
             }
+            SaveExcel();
+            
 
 
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            var a = (float) e.ProgressPercentage/(float) howmanystudent;
+            float b = 100;
+
+
+            progressBar1.Value = Convert.ToInt32(a*b);
+            label5.Text =  e.ProgressPercentage+@"/"+howmanystudent+"完成"+ (((float)e.ProgressPercentage / (float)howmanystudent) * 100).ToString("0.00")+"%";
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            
+            
+        }
+
+        private void SaveExcel()
+        {
             label5.Text = "任务完成！正在保存EXCEL";
             bool finderr = false;
             string title = DateTime.Now.ToFileTime().ToString();
@@ -696,19 +737,13 @@ namespace IeidjtuKCB.UI
             }
         }
 
-        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            var a = (float) e.ProgressPercentage/(float) howmanystudent;
-            float b = 100;
+            if (backgroundWorker1.IsBusy)
+            {
 
-
-            progressBar1.Value = Convert.ToInt32(a*b);
-            label5.Text =  e.ProgressPercentage+@"/"+howmanystudent+"完成"+ (((float)e.ProgressPercentage / (float)howmanystudent) * 100).ToString("0.00")+"%";
-        }
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            
+                backgroundWorker1.CancelAsync();
+            }
             
         }
     }
